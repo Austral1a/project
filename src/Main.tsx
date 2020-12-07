@@ -1,11 +1,11 @@
 import React, { FC, ReactElement } from "react";
 import { Sidebar, SidebarItem, useSidebarManager } from "./Components/Sidebar";
 import { burgerIcon, sidebarItemIcon } from "./assets/images";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { RoutePath } from "./helpers";
 //@ts-ignore
 import classes from "./styles/Main.module.scss";
-import { Item1, Item2, Item3, Settings } from "./Sidebar";
+import { Routes } from "./Components/Sidebar/routes/SibebarRoutes";
 
 export const Main: FC = (): ReactElement => {
   const {
@@ -13,7 +13,10 @@ export const Main: FC = (): ReactElement => {
     onSidebarClose,
     isSidebarOpen,
   } = useSidebarManager();
-
+  // TODO: create folder routes in Sidebar
+  // TODO: add typings-for-css-modules-loader
+  // TODO: font awesome rather than assets
+  // TODO: SidebarItem is not must, just render Item1, Item2 ...
   return (
     <Router>
       <div className={classes["main"]}>
@@ -50,10 +53,7 @@ export const Main: FC = (): ReactElement => {
             />
           </>
         </Sidebar>
-        <Route path={RoutePath.item1} component={Item1} />
-        <Route path={RoutePath.item2} component={Item2} />
-        <Route path={RoutePath.item3} component={Item3} />
-        <Route path={RoutePath.settings} component={Settings} />
+        <Routes />
       </div>
     </Router>
   );

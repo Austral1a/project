@@ -5,3 +5,4 @@ export enum RoutePath {
   item3 = "/item3",
   settings = "/settings",
 }
+const routePaths = {};

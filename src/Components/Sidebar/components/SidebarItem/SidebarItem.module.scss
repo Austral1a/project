@@ -6,20 +6,31 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 50px;
+    border-bottom: 1px solid $text-color;
+    padding-left: 13px;
     span {
       width: 25px;
       height: 25px;
       filter: $sidebar-item-svg-color;
     }
+
     a {
+      padding-left: 10px;
       transition: all 0.2s linear;
       text-decoration: none;
       color: $text-color;
     }
 
+
     &:hover {
       a {
         color: darken($text-color, 30%);
+        transition: all 0.2s linear;
+      }
+      // TODO: make font form svg
+      span {
+        filter: darken(black, 30%);
         transition: all 0.2s linear;
       }
     }

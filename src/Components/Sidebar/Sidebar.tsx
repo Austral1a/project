@@ -25,12 +25,11 @@ export const Sidebar: FC<SidebarProps> = ({
     <div className={customClasses}>
       <div className={classes["sidebar-overlay"]}>
         <div className={classes["sidebar-content"]}>
-          <span onClick={onSidebarToggle}>
-            <img
-              className={classes["sidebar-content__burger"]}
-              src={burgerIcon}
-              alt="open-sidebar"
-            />
+          <span
+            className={classes["sidebar-content__burger"]}
+            onClick={onSidebarToggle}
+          >
+            <img src={burgerIcon} alt="open-sidebar" />
           </span>
           <div className={classes["sidebar-content__items"]}>{children}</div>
         </div>
