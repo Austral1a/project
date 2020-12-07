@@ -3,25 +3,25 @@ import { Switch, Route } from "react-router";
 import { RoutePath } from "../../../helpers";
 
 const Item1 = lazy(() =>
-  import("../../../Sidebar/components/Item1").then((module) => ({
+  import("../components/Item1").then((module) => ({
     default: module.Item1,
   }))
 );
 
 const Item2 = lazy(() =>
-  import("../../../Sidebar/components/Item2").then((module) => ({
+  import("../components/Item2").then((module) => ({
     default: module.Item2,
   }))
 );
 
 const Item3 = lazy(() =>
-  import("../../../Sidebar/components/Item3").then((module) => ({
+  import("../components/Item3").then((module) => ({
     default: module.Item3,
   }))
 );
 
 const Settings = lazy(() =>
-  import("../../../Sidebar/components/Settings").then((module) => ({
+  import("../components/Settings").then((module) => ({
     default: module.Settings,
   }))
 );

@@ -1,26 +1,24 @@
 import React, { FC, ReactElement } from "react";
-//@ts-ignore
-import classes from "./SidebarItem.module.scss";
+import classes from ''
 import { Link } from "react-router-dom";
+import {faStar} from "@fortawesome/free-solid-svg-icons/faStar";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface SidebarItemProps {
   itemText: string;
-  itemIcon: string;
   route: string;
   onSidebarClose: () => void;
 }
 
 export const SidebarItem: FC<SidebarItemProps> = ({
   itemText,
-  itemIcon,
   route,
   onSidebarClose,
 }): ReactElement => {
+
   return (
     <div className={classes["sidebar-content__item"]}>
-      <span>
-        <img src={itemIcon} alt="item-icon" />
-      </span>
+      <FontAwesomeIcon className={classes['sidebar-content__item-icon']} icon={faStar} />
       <Link onClick={onSidebarClose} to={route}>
         {itemText}
       </Link>

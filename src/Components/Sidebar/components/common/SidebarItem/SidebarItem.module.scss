@@ -1,5 +1,5 @@
-@import '../../../../styles/variables';
-@import '../../../../styles/mixins';
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
 
 .sidebar {
   &-content__item {
@@ -9,10 +9,10 @@
     height: 50px;
     border-bottom: 1px solid $text-color;
     padding-left: 13px;
-    span {
-      width: 25px;
-      height: 25px;
-      filter: $sidebar-item-svg-color;
+
+    &-icon {
+      font-size: 1.5rem;
+      color: $sidebar-item-icon-color;
     }
 
     a {
@@ -24,13 +24,8 @@
 
 
     &:hover {
-      a {
-        color: darken($text-color, 30%);
-        transition: all 0.2s linear;
-      }
-      // TODO: make font form svg
-      span {
-        filter: darken(black, 30%);
+      & > * {
+        color: darken($text-color, 10%);
         transition: all 0.2s linear;
       }
     }
