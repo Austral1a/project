@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
+import {Sidebar} from './Components'
+import {Main} from "./Main";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>'</div>
+      <Main />
   </React.StrictMode>,
   document.getElementById('root')
 );

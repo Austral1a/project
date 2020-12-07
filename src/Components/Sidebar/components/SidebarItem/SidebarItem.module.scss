@@ -1,0 +1,27 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.sidebar {
+  &-content__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    span {
+      width: 25px;
+      height: 25px;
+      filter: $sidebar-item-svg-color;
+    }
+    a {
+      transition: all 0.2s linear;
+      text-decoration: none;
+      color: $text-color;
+    }
+
+    &:hover {
+      a {
+        color: darken($text-color, 30%);
+        transition: all 0.2s linear;
+      }
+    }
+  }
+}
