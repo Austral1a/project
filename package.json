@@ -101,7 +101,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "tsm": "tsm src --watch --nameFormat none -e default --exportTypeName classes"
   },
   "eslintConfig": {
     "extends": [
@@ -163,8 +164,7 @@
       "json",
       "web.jsx",
       "jsx",
-      "node",
-      "scss"
+      "node"
     ],
     "watchPlugins": [
       "jest-watch-typeahead/filename",
@@ -179,7 +179,11 @@
   },
   "devDependencies": {
     "classnames": "^2.2.6",
+    "css-modules-typescript-loader": "^4.0.1",
     "node-sass": "^4.14.1",
-    "redux-devtools-extension": "^2.13.8"
+    "redux-devtools-extension": "^2.13.8",
+    "typed-css-modules-webpack-plugin": "^0.2.0",
+    "typed-scss-modules": "^3.4.0",
+    "typescript-plugin-css-modules": "^3.0.1"
   }
 }

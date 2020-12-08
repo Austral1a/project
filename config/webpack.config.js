@@ -29,6 +29,8 @@ const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin"
 
 const postcssNormalize = require("postcss-normalize");
 
+const {TypedCssModulesPlugin} = require('typed-css-modules-webpack-plugin');
+
 const appPackageJson = require(paths.appPackageJson);
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -59,7 +61,7 @@ const swSrc = paths.swSrc;
 const cssRegex = /\.global\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.global\.(scss|sass)$/;
-const sassModuleRegex = /\.module\.(scss|sass)$/;
+const sassModuleRegex = /\.(scss|sass)$/;
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === "true") {
@@ -474,7 +476,6 @@ module.exports = function (webpackEnv) {
                 sourceMap: isEnvProduction
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
-                camelCase: true,
               }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -584,6 +585,9 @@ module.exports = function (webpackEnv) {
                   : undefined
           )
       ),
+      new TypedCssModulesPlugin({
+        globPattern: 'src/**/*.css',
+      }),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358

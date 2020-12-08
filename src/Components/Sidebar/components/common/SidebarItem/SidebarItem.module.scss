@@ -1,15 +1,13 @@
 @import '../../../../../styles/variables';
 @import '../../../../../styles/mixins';
 
-.sidebar {
-  &-content__item {
-    display: flex;
-    flex-direction: row;
+  .sidebar-content__item {
+    @include flexRow;
     align-items: center;
     height: 50px;
     border-bottom: 1px solid $text-color;
     padding-left: 13px;
-
+    @include primary-transition;
     &-icon {
       font-size: 1.5rem;
       color: $sidebar-item-icon-color;
@@ -17,17 +15,18 @@
 
     a {
       padding-left: 10px;
-      transition: all 0.2s linear;
+      @include primary-transition;
       text-decoration: none;
       color: $text-color;
     }
 
 
     &:hover {
+      background-color: rgba(211,207,199, 0.5);
+      @include primary-transition;
       & > * {
         color: darken($text-color, 10%);
-        transition: all 0.2s linear;
+        @include primary-transition;
       }
     }
   }
-}

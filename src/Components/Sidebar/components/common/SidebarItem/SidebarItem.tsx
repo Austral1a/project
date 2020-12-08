@@ -1,5 +1,4 @@
 import React, { FC, ReactElement } from "react";
-//@ts-ignore
 import classes from './SidebarItem.module.scss'
 import { Link } from "react-router-dom";
 import {faStar} from "@fortawesome/free-solid-svg-icons/faStar";

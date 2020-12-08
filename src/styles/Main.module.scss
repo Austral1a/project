@@ -1,17 +1,16 @@
-@import '../styles/variables';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap');
+@import "../styles/variables";
+@import "../styles/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap");
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .main {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
+  @include wh100ViewPort;
+  @include flexRow;
   background-color: $main-bg-color;
 }

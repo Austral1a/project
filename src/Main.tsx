@@ -2,7 +2,6 @@ import React, { FC, ReactElement } from "react";
 import { Sidebar, SidebarItem, useSidebarManager } from "./Components";
 import { BrowserRouter as Router } from "react-router-dom";
 import { RoutePath } from "./helpers";
-//@ts-ignore
 import classes from "./styles/Main.module.scss";
 import { Routes } from "./Components/Sidebar/routes/SibebarRoutes";
 
@@ -12,12 +11,12 @@ export const Main: FC = (): ReactElement => {
     onSidebarClose,
     isSidebarOpen,
   } = useSidebarManager();
-  // TODO: add typings-for-css-modules-loader
 
   return (
     <Router>
       <div className={classes["main"]}>
         <Sidebar
+          onSidebarClose={onSidebarClose}
           isSidebarOpen={isSidebarOpen}
           onSidebarToggle={onSidebarToggle}
         >
