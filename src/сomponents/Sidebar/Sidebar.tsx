@@ -5,6 +5,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RoutePath, translation } from "@helpers";
 import { SidebarItem } from "./components/SidebarItem";
+import { Routes } from "./routes/SibebarRoutes";
 interface SidebarProps {
   isSidebarOpen: boolean;
   onSidebarToggle: () => void;
@@ -38,25 +39,34 @@ export const Sidebar: FC<SidebarProps> = ({
   const customClasses = classNames(!isSidebarOpen && classes["sidebar_closed"]);
 
   return (
-    <div className={customClasses}>
-      <div className={classes["sidebar-overlay"]}>
-        <div className={classes["sidebar-content"]}>
-          <FontAwesomeIcon
-            onClick={onSidebarToggle}
-            className={classes["sidebar-content__burger"]}
-            icon={faBars}
-          />
-          <div className={classes["sidebar-content__items"]}>
-            {Object.values(sidebarItems).map((item) => {
-              return <SidebarItem route={item.route} itemText={item.title} />;
-            })}
+    <>
+      <div className={customClasses}>
+        <div className={classes["sidebar-overlay"]}>
+          <div className={classes["sidebar-content"]}>
+            <FontAwesomeIcon
+              onClick={onSidebarToggle}
+              className={classes["sidebar-content__burger"]}
+              icon={faBars}
+            />
+            <div className={classes["sidebar-content__items"]}>
+              {Object.values(sidebarItems).map((item) => {
+                return (
+                  <SidebarItem
+                    key={item.title}
+                    route={item.route}
+                    itemText={item.title}
+                  />
+                );
+              })}
+            </div>
           </div>
+          <div
+            onClick={onSidebarClose}
+            className={classes["sidebar__background"]}
+          />
         </div>
-        <div
-          onClick={onSidebarClose}
-          className={classes["sidebar__background"]}
-        />
       </div>
-    </div>
+      <Routes />
+    </>
   );
 };
