@@ -33,6 +33,7 @@
       grid-gap: 10px;
       height: 100%;
       grid-template-rows: repeat(3, 50px) auto;
+
       &:last-child {
         align-items: end;
       }
@@ -55,6 +56,7 @@
 
     &__items {
       grid-template-columns: 55px;
+
       h3 {
         display: none;
       }

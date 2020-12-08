@@ -1,6 +1,6 @@
 import React, { FC, lazy, Suspense } from "react";
 import { Switch, Route } from "react-router";
-import { RoutePath } from "../../../helpers";
+import { RoutePath } from "@helpers";
 
 const Item1 = lazy(() =>
   import("../../../containers/Item1").then((module) => ({

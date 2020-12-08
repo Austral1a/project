@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RoutePath, translation } from "@helpers";
 import { SidebarItem } from "./components/SidebarItem";
 import { Routes } from "./routes/SibebarRoutes";
+
 interface SidebarProps {
   isSidebarOpen: boolean;
   onSidebarToggle: () => void;
