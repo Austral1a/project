@@ -57,9 +57,9 @@ const swSrc = paths.swSrc;
 
 // style files regexes
 const cssRegex = /\.global\.css$/;
-const cssModuleRegex = /\.css$/;
+const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.global\.(scss|sass)$/;
-const sassModuleRegex = /\.(scss|sass)$/;
+const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === "true") {
@@ -509,6 +509,7 @@ module.exports = function (webpackEnv) {
                         ? shouldUseSourceMap
                         : isEnvDevelopment,
                   },
+
                   "sass-loader"
               ),
               // Don't consider CSS imports dead code even if the

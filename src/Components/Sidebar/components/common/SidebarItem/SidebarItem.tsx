@@ -1,5 +1,6 @@
 import React, { FC, ReactElement } from "react";
-import classes from ''
+//@ts-ignore
+import classes from './SidebarItem.module.scss'
 import { Link } from "react-router-dom";
 import {faStar} from "@fortawesome/free-solid-svg-icons/faStar";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";

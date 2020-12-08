@@ -1,6 +1,6 @@
 import React, { FC, ReactChild, ReactElement } from "react";
-//@ts-ignore
-import classes from "./Sidebar.module.scss";
+
+import classes from './Sidebar.module.scss'
 import classNames from "classnames";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";

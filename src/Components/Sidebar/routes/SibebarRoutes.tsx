@@ -28,7 +28,6 @@ const Settings = lazy(() =>
 
 export const Routes: FC = () => {
   return (
-    // TODO: add loader
     <Suspense fallback={<p>...Loading</p>}>
       <Switch>
         <Route path={RoutePath.item1} component={Item1} />
