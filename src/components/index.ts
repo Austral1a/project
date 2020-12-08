@@ -1,3 +1,3 @@
 export * from "./Sidebar";
 export * from "./Header";
-export * from "./shared";
+export * from "./common";

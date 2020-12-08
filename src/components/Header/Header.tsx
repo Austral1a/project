@@ -1,23 +1,31 @@
-import React, { FC, ReactElement, useState } from "react";
+import React, { FC, ReactElement } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons/faStar";
 import classes from "./Header.module.scss";
 import { Link } from "react-router-dom";
-import { RoutePath } from "@helpers";
-import { Tooltip } from "../shared/Tooltip";
+import { RoutePath, translation } from "@helpers";
+import { Tooltip } from "../common";
+import { DropDownMenu } from "../common";
+import { useHeaderManager } from "./hooks";
 
-// TODO: add tooltip; add drop-down menu
+const dropDownMenuItems = {
+  item1: {
+    title: translation.item1,
+  },
+  item2: {
+    title: translation.item2,
+  },
+};
+
 export const Header: FC = (): ReactElement => {
-  const [isLogoHovered, setIsLogoHovered] = useState(false);
-
-  // TODO: extract into hook
-  const onMouseOver = () => {
-    setIsLogoHovered(true);
-  };
-
-  const onMouseOut = () => {
-    setIsLogoHovered(false);
-  };
+  const {
+    onMouseOver,
+    onMouseOut,
+    onMenuToggle,
+    onMenuClose,
+    isMenuOpen,
+    isLogoHovered,
+  } = useHeaderManager();
 
   return (
     <header className={classes["header"]}>
@@ -29,9 +37,26 @@ export const Header: FC = (): ReactElement => {
         icon={faStar}
         onMouseOver={onMouseOver}
         onMouseOut={onMouseOut}
+        onClick={onMenuToggle}
       />
-      {isLogoHovered && (
-        <Tooltip className={classes["header__tooltip-menu"]} text="Menu" />
+      {isMenuOpen && (
+        <DropDownMenu className={classes["header__drop-down-menu"]}>
+          <>
+            {Object.values(dropDownMenuItems).map((item) => {
+              return (
+                <h3 onClick={onMenuClose} key={item.title}>
+                  {item.title}
+                </h3>
+              );
+            })}
+          </>
+        </DropDownMenu>
+      )}
+      {!isMenuOpen && isLogoHovered && (
+        <Tooltip
+          className={classes["header__tooltip-menu"]}
+          text={translation.headerTooltipText}
+        />
       )}
     </header>
   );

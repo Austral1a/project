@@ -3,4 +3,5 @@ export const translation = {
   item2: "Item2",
   item3: "Item3",
   settings: "Settings",
+  headerTooltipText: "Menu",
 };

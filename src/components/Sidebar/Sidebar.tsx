@@ -4,8 +4,8 @@ import classNames from "classnames";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RoutePath, translation } from "@helpers";
-import { SidebarItem } from "./components/SidebarItem";
-import { Routes } from "./routes/SibebarRoutes";
+import { SidebarItem } from "./components";
+import { Routes } from "./routes";
 
 interface SidebarProps {
   isSidebarOpen: boolean;
