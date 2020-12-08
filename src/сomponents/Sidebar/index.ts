@@ -1,3 +1,3 @@
 export * from "./components";
-export * from "./Sidebar";
 export * from "./hooks";
+export * from "./Sidebar";

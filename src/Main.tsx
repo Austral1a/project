@@ -1,9 +1,8 @@
 import React, { FC, ReactElement } from "react";
-import { Sidebar, SidebarItem, useSidebarManager } from "./Components";
+import { Sidebar, useSidebarManager } from "./сomponents/Sidebar";
 import { BrowserRouter as Router } from "react-router-dom";
-import { RoutePath } from "./helpers";
 import classes from "./styles/Main.module.scss";
-import { Routes } from "./Components/Sidebar/routes/SibebarRoutes";
+import { Routes } from "./сomponents/Sidebar/routes/SibebarRoutes";
 
 export const Main: FC = (): ReactElement => {
   const {
@@ -19,31 +18,7 @@ export const Main: FC = (): ReactElement => {
           onSidebarClose={onSidebarClose}
           isSidebarOpen={isSidebarOpen}
           onSidebarToggle={onSidebarToggle}
-        >
-          <>
-            <SidebarItem
-              onSidebarClose={onSidebarClose}
-              route={RoutePath.item1}
-              itemText={"Item1"}
-            />
-            <SidebarItem
-              onSidebarClose={onSidebarClose}
-              route={RoutePath.item2}
-              itemText={"Item2"}
-            />
-            <SidebarItem
-              onSidebarClose={onSidebarClose}
-              route={RoutePath.item3}
-              itemText={"Item3"}
-            />
-
-            <SidebarItem
-              onSidebarClose={onSidebarClose}
-              route={RoutePath.settings}
-              itemText={"Settings"}
-            />
-          </>
-        </Sidebar>
+        />
         <Routes />
       </div>
     </Router>
