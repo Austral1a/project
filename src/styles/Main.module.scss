@@ -9,8 +9,14 @@
   font-family: "Roboto", sans-serif;
 }
 
-.main {
+.root {
   @include wh100ViewPort;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
   @include flexRow;
+  height: calc(100% - 50px);
   background-color: $main-bg-color;
 }
