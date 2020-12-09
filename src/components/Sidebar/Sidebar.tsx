@@ -6,12 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RoutePath, translation } from "@helpers";
 import { SidebarItem } from "./components/SidebarItem";
 import { Routes } from "./routes/SibebarRoutes";
-
-interface SidebarProps {
-  isSidebarOpen: boolean;
-  onSidebarToggle: () => void;
-  onSidebarClose: () => void;
-}
+import { useSidebarManager } from "./hooks";
 
 const sidebarItems = [
   {
@@ -32,11 +27,13 @@ const sidebarItems = [
   },
 ];
 
-export const Sidebar: FC<SidebarProps> = ({
-  onSidebarToggle,
-  isSidebarOpen,
-  onSidebarClose,
-}): ReactElement => {
+export const Sidebar: FC = (): ReactElement => {
+  const {
+    onSidebarToggle,
+    onSidebarClose,
+    isSidebarOpen,
+  } = useSidebarManager();
+
   const customClasses = classNames(
     !isSidebarOpen && classes["sidebar--closed"]
   );
