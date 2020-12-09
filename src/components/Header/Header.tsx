@@ -19,8 +19,8 @@ const dropDownMenuItems = [
 
 export const Header: FC = (): ReactElement => {
   const {
-    onMouseOver,
-    onMouseOut,
+    onHeaderIconHoverOver,
+    onHeaderIconHoverOut,
     onMenuToggle,
     onMenuClose,
     isMenuOpen,
@@ -35,8 +35,8 @@ export const Header: FC = (): ReactElement => {
       <FontAwesomeIcon
         className={classes["header__title-icon"]}
         icon={faStar}
-        onMouseOver={onMouseOver}
-        onMouseOut={onMouseOut}
+        onMouseOver={onHeaderIconHoverOver}
+        onMouseOut={onHeaderIconHoverOut}
         onClick={onMenuToggle}
       />
       {isMenuOpen && (

@@ -1,36 +1,35 @@
-import {useCallback, useState} from "react";
+import { useCallback, useState } from "react";
 
 interface HeaderManagerResult {
-    isLogoHovered: boolean;
-    isMenuOpen: boolean;
-    onMouseOver: () => void;
-    onMouseOut: () => void;
-    onMenuToggle: () => void;
-    onMenuClose: () => void;
+  isLogoHovered: boolean;
+  isMenuOpen: boolean;
+  onHeaderIconHoverOver: () => void;
+  onHeaderIconHoverOut: () => void;
+  onMenuToggle: () => void;
+  onMenuClose: () => void;
 }
 
 export const useHeaderManager = (): HeaderManagerResult => {
-    const [isLogoHovered, setIsLogoHovered] = useState(false);
+  const [isLogoHovered, setIsLogoHovered] = useState(false);
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const onMouseOver = useCallback(() => setIsLogoHovered(true), [])
-    const onMouseOut = useCallback(() => setIsLogoHovered(false), [])
+  const onHeaderIconHoverOver = useCallback(() => setIsLogoHovered(true), []);
+  const onHeaderIconHoverOut = useCallback(() => setIsLogoHovered(false), []);
 
-    const onMenuOpen = useCallback(() => setIsMenuOpen(true), [])
-    const onMenuClose = useCallback(() => setIsMenuOpen(false),[])
+  const onMenuOpen = useCallback(() => setIsMenuOpen(true), []);
+  const onMenuClose = useCallback(() => setIsMenuOpen(false), []);
 
-    const onMenuToggle = useCallback(() => {
-        isMenuOpen ? onMenuClose() : onMenuOpen()
-    }, [isMenuOpen, onMenuClose, onMenuOpen])
+  const onMenuToggle = useCallback(() => {
+    isMenuOpen ? onMenuClose() : onMenuOpen();
+  }, [isMenuOpen, onMenuClose, onMenuOpen]);
 
-    return {
-        isLogoHovered,
-        isMenuOpen,
-        onMenuClose,
-        onMenuToggle,
-        onMouseOut,
-        onMouseOver,
-    }
-
-}
+  return {
+    isLogoHovered,
+    isMenuOpen,
+    onMenuClose,
+    onMenuToggle,
+    onHeaderIconHoverOver,
+    onHeaderIconHoverOut,
+  };
+};
