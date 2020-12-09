@@ -7,8 +7,7 @@
     position: absolute;
     background-color: $overlay-bg-color;
     @include flexRow;
-    width: 100vw;
-    height: calc(100vh - 50px);
+    @include widthHeight(100vw, calc(100vh - 50px));
   }
 
   &-background {
@@ -16,8 +15,7 @@
   }
 
   &-content {
-    width: 350px;
-    min-width: 150px;
+    @include widthMinWidth(150px, 350px);
     @include sidebarShadow;
     @include flexColumn;
     background-color: $sidebar-bg-color;
@@ -50,10 +48,8 @@
     }
 
     &-content {
-      -webkit-box-shadow: none;
-      box-shadow: none;
-      min-width: 55px;
-      max-width: 55px;
+      @include resetShadow;
+      @include minMaxWidth(55px, 55px);
 
       &__items {
         grid-template-columns: 55px;
