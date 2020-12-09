@@ -1,6 +1,5 @@
 export type Styles = {
-  main: string;
-  root: string;
+  tooltip: string;
 };
 
 export type classes = keyof Styles;

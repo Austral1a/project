@@ -1,6 +1,5 @@
 export type Styles = {
-  main: string;
-  root: string;
+  "drop-down": string;
 };
 
 export type classes = keyof Styles;

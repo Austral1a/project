@@ -7,11 +7,12 @@
     position: absolute;
     background-color: $overlay-bg-color;
     @include flexRow;
+    width: 100vw;
+    height: calc(100vh - 50px);
   }
 
   &-background {
     width: 100%;
-    z-index: 999;
   }
 
   &-content {
@@ -20,7 +21,6 @@
     @include sidebarShadow;
     @include flexColumn;
     background-color: $sidebar-bg-color;
-    height: 100vh;
 
     &__burger {
       padding: 10px 0 0 13px;
