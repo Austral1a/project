@@ -3,8 +3,8 @@ import { Switch, Route } from "react-router";
 import { RoutePath } from "@helpers";
 
 const Item1 = lazy(() =>
-  import("../../../containers/Item1").then((module) => ({
-    default: module.Item1,
+  import("../../../containers/Accordion").then((module) => ({
+    default: module.AccordionCustom,
   }))
 );
 

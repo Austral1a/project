@@ -1,0 +1,26 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.accordion {
+  @include widthHeight(450px, max-content);
+  margin: 12px 0 0 14px;
+  border: 2px solid $text-color;
+  @include flexColumn;
+
+  &__item {
+    @include widthHeight(100%, min-content);
+    border-bottom: 2px solid $text-color;
+    cursor: pointer;
+    @include primary-transition;
+    background-color: #fff;
+
+    &:hover {
+      @include primary-transition;
+      background-color: darken(#cacaca, 10%);
+    }
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}

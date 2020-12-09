@@ -8,6 +8,7 @@
     background-color: $overlay-bg-color;
     @include flexRow;
     @include widthHeight(100vw, calc(100vh - 50px));
+    z-index: 55555;
   }
 
   &-background {
@@ -45,6 +46,11 @@
   .sidebar {
     &-overlay {
       background-color: inherit;
+      @include widthHeight(min-content, calc(100vh - 50px));
+    }
+
+    &-background {
+      display: none;
     }
 
     &-content {
