@@ -8,14 +8,14 @@ import { Tooltip } from "../common";
 import { DropDownMenu } from "../common";
 import { useHeaderManager } from "./hooks";
 
-const dropDownMenuItems = {
-  item1: {
+const dropDownMenuItems = [
+  {
     title: translation.item1,
   },
-  item2: {
+  {
     title: translation.item2,
   },
-};
+];
 
 export const Header: FC = (): ReactElement => {
   const {
@@ -40,14 +40,13 @@ export const Header: FC = (): ReactElement => {
         onClick={onMenuToggle}
       />
       {isMenuOpen && (
-        <DropDownMenu className={classes["header__drop-down-menu"]}>
+        <DropDownMenu
+          onClick={onMenuClose}
+          className={classes["header__drop-down-menu"]}
+        >
           <>
-            {Object.values(dropDownMenuItems).map((item) => {
-              return (
-                <h3 onClick={onMenuClose} key={item.title}>
-                  {item.title}
-                </h3>
-              );
+            {dropDownMenuItems.map((item) => {
+              return <h3 key={item.title}>{item.title}</h3>;
             })}
           </>
         </DropDownMenu>
