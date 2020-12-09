@@ -1,0 +1,28 @@
+@mixin sidebarShadow {
+  -webkit-box-shadow: 9px 0px 15px 0px rgba(0, 0, 0, 0.41);
+  box-shadow: 9px 0px 15px 0px rgba(0, 0, 0, 0.41);
+}
+
+@mixin primary-transition {
+  transition: all 0.2s linear;
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin fullScreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+@mixin headerMenusPositionTopRight {
+  top: 40px;
+  right: 5px;
+}

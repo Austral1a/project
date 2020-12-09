@@ -1,0 +1,67 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.sidebar {
+  &-overlay {
+    @include fullScreen;
+    position: absolute;
+    background-color: $overlay-bg-color;
+    @include flexRow;
+    width: 100vw;
+    height: calc(100vh - 50px);
+  }
+
+  &-background {
+    width: 100%;
+  }
+
+  &-content {
+    width: 350px;
+    min-width: 150px;
+    @include sidebarShadow;
+    @include flexColumn;
+    background-color: $sidebar-bg-color;
+
+    &__burger {
+      padding: 10px 0 0 13px;
+      font-size: 2.9rem;
+      cursor: pointer;
+    }
+
+    &__items {
+      display: grid;
+      grid-gap: 10px;
+      height: 100%;
+      grid-template-rows: repeat(3, 50px) auto;
+
+      &:last-child {
+        align-items: end;
+      }
+    }
+  }
+}
+
+.sidebar--closed {
+  width: 55px;
+
+  .sidebar {
+    &-overlay {
+      background-color: inherit;
+    }
+
+    &-content {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      min-width: 55px;
+      max-width: 55px;
+
+      &__items {
+        grid-template-columns: 55px;
+
+        h3 {
+          display: none;
+        }
+      }
+    }
+  }
+}

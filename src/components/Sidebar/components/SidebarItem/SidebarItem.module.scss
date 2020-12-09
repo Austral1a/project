@@ -1,0 +1,35 @@
+@import "../../../../styles/variables";
+@import "../../../../styles/mixins";
+
+.sidebar-content__item {
+  @include flexRow;
+  align-items: center;
+  height: 50px;
+  border-bottom: 1px solid $text-color;
+  padding-left: 13px;
+  text-decoration: none;
+  @include primary-transition;
+
+  &-icon {
+    font-size: 1.5rem;
+    color: $sidebar-item-icon-color;
+  }
+
+  &--selected {
+    background-color: darken($sidebar-bg-color, 15%);
+    @include primary-transition;
+  }
+
+  &-text {
+    padding-left: 10px;
+    @include primary-transition;
+    color: $text-color;
+  }
+
+  &:hover {
+    & > * {
+      color: darken($text-color, 10%);
+      @include primary-transition;
+    }
+  }
+}

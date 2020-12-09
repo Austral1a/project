@@ -1,0 +1,22 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.root {
+  @include fullScreen;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  @include flexRow;
+  height: calc(100% - 50px);
+  background-color: $main-bg-color;
+}
