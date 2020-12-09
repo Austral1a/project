@@ -13,31 +13,33 @@ interface SidebarProps {
   onSidebarClose: () => void;
 }
 
-const sidebarItems = {
-  item1: {
+const sidebarItems = [
+  {
     title: translation.item1,
     route: RoutePath.item1,
   },
-  item2: {
+  {
     title: translation.item2,
     route: RoutePath.item2,
   },
-  item3: {
+  {
     title: translation.item3,
     route: RoutePath.item3,
   },
-  settings: {
+  {
     title: translation.settings,
     route: RoutePath.settings,
   },
-};
+];
 
 export const Sidebar: FC<SidebarProps> = ({
   onSidebarToggle,
   isSidebarOpen,
   onSidebarClose,
 }): ReactElement => {
-  const customClasses = classNames(!isSidebarOpen && classes["sidebar_closed"]);
+  const customClasses = classNames(
+    !isSidebarOpen && classes["sidebar--closed"]
+  );
 
   return (
     <>
@@ -50,7 +52,7 @@ export const Sidebar: FC<SidebarProps> = ({
               icon={faBars}
             />
             <div className={classes["sidebar-content__items"]}>
-              {Object.values(sidebarItems).map((item) => {
+              {sidebarItems.map((item) => {
                 return (
                   <SidebarItem
                     key={item.title}
@@ -63,7 +65,7 @@ export const Sidebar: FC<SidebarProps> = ({
           </div>
           <div
             onClick={onSidebarClose}
-            className={classes["sidebar__background"]}
+            className={classes["sidebar-background"]}
           />
         </div>
       </div>

@@ -17,7 +17,7 @@
   flex-direction: column;
 }
 
-@mixin wh100ViewPort {
+@mixin fullScreen {
   width: 100vw;
   height: 100vh;
 }

@@ -10,7 +10,7 @@
 }
 
 .main {
-  @include wh100ViewPort;
+  @include fullScreen;
   @include flexRow;
   background-color: $main-bg-color;
 }

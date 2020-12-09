@@ -15,7 +15,7 @@ export const SidebarItem: FC<SidebarItemProps> = ({
 }): ReactElement => {
   return (
     <NavLink
-      activeClassName={classes["sidebar-content__item_selected"]}
+      activeClassName={classes["sidebar-content__item--selected"]}
       className={classes["sidebar-content__item"]}
       to={route}
     >

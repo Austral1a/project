@@ -3,19 +3,19 @@
 
 .sidebar {
   &-overlay {
-    @include wh100ViewPort;
+    @include fullScreen;
     position: absolute;
     background-color: $overlay-bg-color;
     @include flexRow;
   }
 
-  &__background {
+  &-background {
     width: 100%;
     z-index: 999;
   }
 
   &-content {
-    width: 25vw;
+    width: 350px;
     min-width: 150px;
     @include sidebarShadow;
     @include flexColumn;
@@ -41,24 +41,26 @@
   }
 }
 
-.sidebar_closed {
+.sidebar--closed {
   width: 55px;
 
-  .sidebar-overlay {
-    background-color: inherit;
-  }
+  .sidebar {
+    &-overlay {
+      background-color: inherit;
+    }
 
-  .sidebar-content {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    min-width: 55px;
-    max-width: 55px;
+    &-content {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      min-width: 55px;
+      max-width: 55px;
 
-    &__items {
-      grid-template-columns: 55px;
+      &__items {
+        grid-template-columns: 55px;
 
-      h3 {
-        display: none;
+        h3 {
+          display: none;
+        }
       }
     }
   }

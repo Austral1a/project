@@ -15,7 +15,7 @@
     color: $sidebar-item-icon-color;
   }
 
-  &_selected {
+  &--selected {
     background-color: darken($sidebar-bg-color, 15%);
     @include primary-transition;
   }
