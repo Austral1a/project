@@ -19,11 +19,11 @@ const dropDownMenuItems = [
 
 export const Header: FC = (): ReactElement => {
   const {
-    onHeaderIconHoverOver,
-    onHeaderIconHoverOut,
-    onMenuToggle,
-    onMenuClose,
-    isMenuOpen,
+    onHeaderLogoHoverOver,
+    onHeaderLogoHoverOut,
+    onHeaderMenuToggle,
+    onHeaderMenuClose,
+    isHeaderMenuOpen,
     isLogoHovered,
   } = useHeaderManager();
 
@@ -35,13 +35,13 @@ export const Header: FC = (): ReactElement => {
       <FontAwesomeIcon
         className={classes["header__title-icon"]}
         icon={faStar}
-        onMouseOver={onHeaderIconHoverOver}
-        onMouseOut={onHeaderIconHoverOut}
-        onClick={onMenuToggle}
+        onMouseOver={onHeaderLogoHoverOver}
+        onMouseOut={onHeaderLogoHoverOut}
+        onClick={onHeaderMenuToggle}
       />
-      {isMenuOpen && (
+      {isHeaderMenuOpen && (
         <DropDownMenu
-          onClick={onMenuClose}
+          onClick={onHeaderMenuClose}
           className={classes["header__drop-down-menu"]}
         >
           <>
@@ -51,7 +51,7 @@ export const Header: FC = (): ReactElement => {
           </>
         </DropDownMenu>
       )}
-      {!isMenuOpen && isLogoHovered && (
+      {!isHeaderMenuOpen && isLogoHovered && (
         <Tooltip
           className={classes["header__tooltip-menu"]}
           text={translation.headerTooltipText}
