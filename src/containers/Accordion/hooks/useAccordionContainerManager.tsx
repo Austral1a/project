@@ -8,7 +8,7 @@ interface ActiveKeys {
 
 interface AccordionContainerResult {
   findActiveId: (id: number) => boolean;
-  onItemOpen: (id: number) => void;
+  onItemToggle: (id: number) => void;
 }
 
 export const useAccordionContainerManager = (): AccordionContainerResult => {
@@ -32,7 +32,7 @@ export const useAccordionContainerManager = (): AccordionContainerResult => {
     [activeKeys]
   );
 
-  const onItemOpen = useCallback(
+  const onItemToggle = useCallback(
     (id: number) => {
       const newActiveKeys = activeKeys.map((item) => {
         if (item.itemId === id) {
@@ -50,6 +50,6 @@ export const useAccordionContainerManager = (): AccordionContainerResult => {
 
   return {
     findActiveId,
-    onItemOpen,
+    onItemToggle,
   };
 };

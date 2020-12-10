@@ -24,7 +24,7 @@ export const accordionItems = [
 ];
 
 export const AccordionContainer: FC = (): ReactElement => {
-  const { findActiveId, onItemOpen } = useAccordionContainerManager();
+  const { findActiveId, onItemToggle } = useAccordionContainerManager();
 
   return (
     <Accordion className={classes["accordion"]}>
@@ -36,7 +36,7 @@ export const AccordionContainer: FC = (): ReactElement => {
             key={item.title}
             itemTitle={item.title}
             itemText={item.text}
-            onItemToggle={() => onItemOpen(id)}
+            onItemToggle={() => onItemToggle(id)}
           />
         );
       })}
