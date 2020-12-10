@@ -2,7 +2,7 @@
 @import "../../styles/variables";
 
 .accordion {
-  @include widthHeight(450px, max-content);
+  @include widthHeight(400px, max-content);
   margin: 12px 0 0 14px;
   border: 2px solid $text-color;
   @include flexColumn;
