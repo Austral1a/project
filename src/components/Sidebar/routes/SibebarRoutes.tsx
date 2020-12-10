@@ -2,9 +2,9 @@ import React, { FC, lazy, Suspense } from "react";
 import { Switch, Route } from "react-router";
 import { RoutePath } from "@helpers";
 
-const Item1 = lazy(() =>
+const accordion = lazy(() =>
   import("../../../containers/Accordion").then((module) => ({
-    default: module.AccordionCustom,
+    default: module.AccordionContainer,
   }))
 );
 
@@ -30,7 +30,7 @@ export const Routes: FC = () => {
   return (
     <Suspense fallback={<p>...Loading</p>}>
       <Switch>
-        <Route path={RoutePath.item1} component={Item1} />
+        <Route path={RoutePath.accordion} component={accordion} />
         <Route path={RoutePath.item2} component={Item2} />
         <Route path={RoutePath.item3} component={Item3} />
         <Route path={RoutePath.settings} component={Settings} />

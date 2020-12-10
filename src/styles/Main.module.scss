@@ -14,7 +14,7 @@
 }
 
 .main {
-  @include flexRow;
+  @include grid(1fr, 55px 1fr, 0);
   height: calc(100% - 50px);
   background-color: $main-bg-color;
 }

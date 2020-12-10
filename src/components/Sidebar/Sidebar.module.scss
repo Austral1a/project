@@ -28,10 +28,8 @@
     }
 
     &__items {
-      display: grid;
-      grid-gap: 10px;
+      @include grid(repeat(3, 50px) auto, 1fr, 10px);
       height: 100%;
-      grid-template-rows: repeat(3, 50px) auto;
 
       &:last-child {
         align-items: end;

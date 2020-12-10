@@ -55,3 +55,10 @@
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
+@mixin grid($row, $col, $gap) {
+  display: grid;
+  grid-template-rows: $row;
+  grid-template-columns: $col;
+  grid-gap: $gap;
+}

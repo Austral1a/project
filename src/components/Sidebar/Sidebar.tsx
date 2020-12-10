@@ -10,8 +10,8 @@ import { useSidebarManager } from "./hooks";
 
 const sidebarItems = [
   {
-    title: translation.item1,
-    route: RoutePath.item1,
+    title: translation.accordion,
+    route: RoutePath.accordion,
   },
   {
     title: translation.item2,

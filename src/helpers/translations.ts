@@ -1,5 +1,5 @@
 export const translation = {
-  item1: "Accordion",
+  accordion: "Accordion",
   item2: "Item2",
   item3: "Item3",
   settings: "Settings",

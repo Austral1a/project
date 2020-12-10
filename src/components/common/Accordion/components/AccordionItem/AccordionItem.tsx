@@ -1,10 +1,7 @@
-import React, { FC, ReactElement } from "react";
+import React, { FC, ReactElement, useCallback } from "react";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronDown,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import classes from "./AccordionItem.module.scss";
 
 interface AccordionItemProps {
@@ -13,52 +10,59 @@ interface AccordionItemProps {
   itemText: string;
   itemId: number;
   isItemOpen: boolean | undefined;
-  onClick: () => void;
+  onItemToggle: () => void;
 }
 
 export const AccordionItem: FC<AccordionItemProps> = ({
   className,
   itemTitle,
   itemText,
-  onClick,
+  onItemToggle,
   isItemOpen,
 }): ReactElement => {
-  const customClasses = classNames(classes["accordion__item"], className);
-
-  const customItemBodyClasses = classNames(
-    classes["accordion__item-body"],
-    isItemOpen
-      ? classes["accordion__item-body--expanded"]
-      : classes["accordion__item-body--shrinked"]
+  const accordionItemClasses = classNames(
+    classes["accordion__item"],
+    isItemOpen && classes["accordion__item--active"],
+    className
   );
 
-  const accordionHeaderIcon = isItemOpen ? faChevronDown : faChevronRight;
+  const itemBodyClasses = classNames(
+    classes["accordion__item-body"],
+    isItemOpen && classes["accordion__item-body--expanded"]
+  );
 
-  // TODO: add keyCode to open tab by enter
+  const onEnterPress = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (e.key === "Enter") {
+        onItemToggle();
+      }
+    },
+    [onItemToggle]
+  );
+
   return (
-    <div className={customClasses}>
+    <div className={accordionItemClasses}>
       <div
         tabIndex={0}
         aria-expanded={isItemOpen}
-        role={"tab"}
-        onClick={onClick}
+        role="tab"
+        onClick={onItemToggle}
+        onKeyPress={onEnterPress}
         className={classes["accordion__item-header"]}
       >
         <FontAwesomeIcon
           className={classes["accordion__item-icon"]}
-          icon={accordionHeaderIcon}
+          icon={faChevronRight}
         />
         <h3 className={classes["accordion__item-title"]}>{itemTitle}</h3>
       </div>
-      {isItemOpen && (
-        <div
-          role={"tabpanel"}
-          aria-hidden={!isItemOpen}
-          className={customItemBodyClasses}
-        >
-          {itemText}
-        </div>
-      )}
+      <div
+        className={itemBodyClasses}
+        role="tabpanel"
+        aria-hidden={!isItemOpen}
+      >
+        {itemText}
+      </div>
     </div>
   );
 };

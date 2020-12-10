@@ -10,7 +10,7 @@ import { useHeaderManager } from "./hooks";
 
 const dropDownMenuItems = [
   {
-    title: translation.item1,
+    title: translation.accordion,
   },
   {
     title: translation.item2,
@@ -29,7 +29,7 @@ export const Header: FC = (): ReactElement => {
 
   return (
     <header className={classes["header"]}>
-      <Link className={classes["header__title"]} to={RoutePath.item1}>
+      <Link className={classes["header__title"]} to={RoutePath.accordion}>
         Logo
       </Link>
       <FontAwesomeIcon

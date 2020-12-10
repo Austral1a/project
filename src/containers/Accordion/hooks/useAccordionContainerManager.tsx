@@ -1,5 +1,5 @@
 import { Key, useCallback, useEffect, useState } from "react";
-import { accordionItems } from "../Accordion";
+import { accordionItems } from "../AccordionContainer";
 
 interface ActiveKeys {
   itemId: Key;
@@ -36,7 +36,7 @@ export const useAccordionContainerManager = (): AccordionContainerResult => {
     (id: number) => {
       const newActiveKeys = activeKeys.map((item) => {
         if (item.itemId === id) {
-          item = { ...item, isActive: true };
+          item = { ...item, isActive: !activeKeys[id].isActive };
           return item;
         }
 

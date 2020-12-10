@@ -1,16 +1,42 @@
 @import "./src/styles/mixins";
+@import "./src/styles/variables";
 
 .accordion {
   &__item {
     position: relative;
-    border: 1px solid gray;
+    border: 1px solid darken(#cacaca, 20%);
     margin-bottom: 2px;
     height: 100%;
+    cursor: pointer;
+
     &-header {
       @include widthHeight(100%, calc(160px / 4));
       @include flexRow;
+      @include primary-transition;
+
       align-items: center;
-      background-color: #4477ff;
+      background-color: #cacaca;
+      padding-left: 8px;
+
+      &:hover {
+        @include primary-transition;
+        background-color: darken($accordion-item-header-bg-color, 20%);
+      }
+    }
+
+    &--active {
+      .accordion {
+        &__item {
+          &-header {
+            background-color: $accordion-item-active-header-bg-color;
+          }
+
+          &-icon {
+            @include primary-transition;
+            transform: rotate(90deg);
+          }
+        }
+      }
     }
 
     &-title {
@@ -19,20 +45,24 @@
 
     &-icon {
       position: absolute;
+
+      transform: rotate(0deg);
+      @include primary-transition;
     }
 
     &-body {
       background-color: #fff;
-      padding: 6px;
-      @include widthHeight(100%, 100%);
+      font-size: 0;
+      opacity: 0;
+      padding: 0;
+
+      transition: opacity 0.3s, font-size 0.3s, padding 0.3s 0s;
 
       &--expanded {
-        display: block;
-        height: 100%;
-      }
-
-      &--shrinked {
-        display: none;
+        font-size: 1rem;
+        opacity: 1;
+        padding: 24px;
+        transition: font-size 0.3s, padding 0.3s, opacity 0.25s 0.25s;
       }
     }
   }
