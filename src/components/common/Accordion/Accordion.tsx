@@ -12,5 +12,9 @@ export const Accordion: FC<AccordionProps> = ({
 }): ReactElement => {
   const customClasses = classNames(classes["accordion"], className);
 
-  return <div className={customClasses}>{children}</div>;
+  return (
+    <div role={"tablist"} className={customClasses}>
+      {children}
+    </div>
+  );
 };

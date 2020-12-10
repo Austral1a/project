@@ -1,6 +1,5 @@
-import React, { FC, ReactElement, useCallback, useState } from "react";
+import React, { FC, ReactElement } from "react";
 import classNames from "classnames";
-import { useAccordionItemManager } from "./hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
@@ -12,7 +11,9 @@ interface AccordionItemProps {
   className?: string;
   itemTitle: string;
   itemText: string;
-  onClick: (...v: any) => void;
+  itemId: number;
+  isItemOpen: boolean | undefined;
+  onClick: () => void;
 }
 
 export const AccordionItem: FC<AccordionItemProps> = ({
@@ -20,14 +21,8 @@ export const AccordionItem: FC<AccordionItemProps> = ({
   itemTitle,
   itemText,
   onClick,
+  isItemOpen,
 }): ReactElement => {
-  const {
-    isItemOpen,
-    onItemExpand,
-    onItemShrink,
-    onItemToggle,
-  } = useAccordionItemManager();
-
   const customClasses = classNames(classes["accordion__item"], className);
 
   const customItemBodyClasses = classNames(
@@ -38,13 +33,15 @@ export const AccordionItem: FC<AccordionItemProps> = ({
   );
 
   const accordionHeaderIcon = isItemOpen ? faChevronDown : faChevronRight;
+
+  // TODO: add keyCode to open tab by enter
   return (
-    <div aria-expanded={isItemOpen} className={customClasses}>
+    <div className={customClasses}>
       <div
-        onClick={() => {
-          onClick();
-          onItemToggle();
-        }}
+        tabIndex={0}
+        aria-expanded={isItemOpen}
+        role={"tab"}
+        onClick={onClick}
         className={classes["accordion__item-header"]}
       >
         <FontAwesomeIcon
@@ -54,7 +51,11 @@ export const AccordionItem: FC<AccordionItemProps> = ({
         <h3 className={classes["accordion__item-title"]}>{itemTitle}</h3>
       </div>
       {isItemOpen && (
-        <div aria-hidden={!isItemOpen} className={customItemBodyClasses}>
+        <div
+          role={"tabpanel"}
+          aria-hidden={!isItemOpen}
+          className={customItemBodyClasses}
+        >
           {itemText}
         </div>
       )}

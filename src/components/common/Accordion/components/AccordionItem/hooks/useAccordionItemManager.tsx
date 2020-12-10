@@ -1,4 +1,4 @@
-import { SyntheticEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 interface AccordionItemManagerResult {
   isItemOpen: boolean;

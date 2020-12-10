@@ -1,9 +1,10 @@
-import React, { FC, ReactElement, useCallback, useState } from "react";
+import React, { FC, ReactElement } from "react";
 import { Accordion, AccordionItem } from "../../components/common/Accordion";
 import classes from "./Accordion.module.scss";
 import { translation } from "@helpers";
+import { useAccordionContainerManager } from "./hooks";
 
-const accordionItems = [
+export const accordionItems = [
   {
     title: "section1",
     text: translation.accordionText,
@@ -23,26 +24,20 @@ const accordionItems = [
 ];
 
 export const AccordionCustom: FC = (): ReactElement => {
-  const [activeTab, setActiveTab] = useState<number>(0);
-
-  const activateTab = useCallback(
-    (index: number) => {
-      const tab = activeTab === index ? -1 : index;
-      setActiveTab(tab);
-    },
-    [activeTab]
-  );
+  const { findActiveId, onItemOpen } = useAccordionContainerManager();
 
   return (
     <Accordion className={classes["accordion"]}>
       {accordionItems.map((item, id) => {
         return (
           <AccordionItem
+            isItemOpen={findActiveId(id)}
+            itemId={id}
             key={item.title}
             className={classes["accordion__item"]}
             itemTitle={item.title}
             itemText={item.text}
-            onClick={() => activateTab(id)}
+            onClick={() => onItemOpen(id)}
           />
         );
       })}
