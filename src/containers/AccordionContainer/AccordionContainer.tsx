@@ -1,8 +1,8 @@
 import React, { FC, ReactElement } from "react";
-import { Accordion, AccordionItem } from "../../components/common/Accordion";
-import classes from "./AccordionContainer.module.scss";
-import { translation } from "@helpers";
+import { Accordion, AccordionItem } from "@components";
 import { useAccordionContainerManager } from "./hooks";
+import { translation } from "@helpers";
+import classes from "./AccordionContainer.module.scss";
 
 export const accordionItems = [
   {

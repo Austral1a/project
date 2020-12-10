@@ -1,7 +1,7 @@
 import React, { FC, ReactElement, useCallback } from "react";
-import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import classNames from "classnames";
 import classes from "./AccordionItem.module.scss";
 
 interface AccordionItemProps {

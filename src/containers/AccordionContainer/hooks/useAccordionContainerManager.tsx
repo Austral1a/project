@@ -1,5 +1,5 @@
 import { Key, useCallback, useEffect, useState } from "react";
-import { accordionItems } from "../AccordionContainer";
+import { accordionItems } from "@containers";
 
 interface ActiveKeys {
   itemId: Key;

@@ -11,7 +11,8 @@
     "paths": {
       "@Assets": [ "src/assets"],
       "@helpers": ["src/helpers"],
-      "@Sidebar": ["src/components/Sidebar"]
+      "@components": ["src/components/"],
+      "@containers": ["src/containers/"]
     },
     "allowJs": true,
     "skipLibCheck": true,

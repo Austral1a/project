@@ -4,8 +4,8 @@ import { faStar } from "@fortawesome/free-solid-svg-icons/faStar";
 import classes from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import { RoutePath, translation } from "@helpers";
-import { Tooltip } from "../common";
-import { DropDownMenu } from "../common";
+import { Tooltip } from "@components";
+import { DropDownMenu } from "@components";
 import { useHeaderManager } from "./hooks";
 
 const dropDownMenuItems = [
