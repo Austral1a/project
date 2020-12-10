@@ -62,3 +62,10 @@
   grid-template-columns: $col;
   grid-gap: $gap;
 }
+
+@mixin accordionItemAnim($fz, $op, $pd, $tr) {
+  font-size: $fz;
+  opacity: $op;
+  padding: $pd;
+  transition: $tr;
+}
