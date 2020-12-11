@@ -1,21 +1,21 @@
 import { Key, useCallback, useEffect, useState } from "react";
 import { accordionItems } from "@containers";
 
-interface ActiveKeys {
+interface ActiveAccordionItems {
   itemId: Key;
   isActive: boolean;
 }
 
 interface AccordionContainerResult {
-  findActiveId: (id: number) => boolean;
+  isItemActive: (id: number) => boolean;
   onItemToggle: (id: number) => void;
 }
 
 export const useAccordionContainerManager = (): AccordionContainerResult => {
-  const [activeKeys, setActiveKeys] = useState<ActiveKeys[]>([]);
+  const [activeItems, setActiveItems] = useState<ActiveAccordionItems[]>([]);
 
   useEffect(() => {
-    setActiveKeys(
+    setActiveItems(
       accordionItems.map((item, id) => {
         return {
           itemId: id,
@@ -25,31 +25,31 @@ export const useAccordionContainerManager = (): AccordionContainerResult => {
     );
   }, []);
 
-  const findActiveId = useCallback(
+  const isItemActive = useCallback(
     (id: number) => {
-      return activeKeys[id]?.isActive;
+      return activeItems[id]?.isActive;
     },
-    [activeKeys]
+    [activeItems]
   );
 
   const onItemToggle = useCallback(
     (id: number) => {
-      const newActiveKeys = activeKeys.map((item) => {
+      const newActiveItems = activeItems.map((item) => {
         if (item.itemId === id) {
-          item = { ...item, isActive: !activeKeys[id].isActive };
+          item = { ...item, isActive: !activeItems[id].isActive };
           return item;
         }
 
         return { ...item, isActive: false };
       });
 
-      setActiveKeys(newActiveKeys);
+      setActiveItems(newActiveItems);
     },
-    [activeKeys, setActiveKeys]
+    [activeItems, setActiveItems]
   );
 
   return {
-    findActiveId,
+    isItemActive,
     onItemToggle,
   };
 };
