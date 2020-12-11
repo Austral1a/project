@@ -61,7 +61,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
         role="tabpanel"
         aria-hidden={!isItemOpen}
       >
-        {isItemOpen && itemContent}
+        {itemContent}
       </div>
     </div>
   );

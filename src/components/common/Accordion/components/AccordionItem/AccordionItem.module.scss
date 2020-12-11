@@ -53,14 +53,14 @@
     &-body {
       background-color: #fff;
       overflow-y: auto;
-      max-height: 650px;
       cursor: auto;
 
       @include accordionItemAnim(
         0,
         0,
         0,
-        (opacity 0.3s, font-size 0.3s, padding 0.3s 0s)
+        0,
+        (opacity 0.3s, font-size 0.3s, padding 0.3s 0s, max-height 0.35s)
       );
 
       &--expanded {
@@ -68,7 +68,8 @@
           1rem,
           1,
           24px,
-          (font-size 0.3s, padding 0.3s, opacity 0.25s 0.25s)
+          650px,
+          (font-size 0.3s, padding 0.3s, opacity 0.25s 0.25s, max-height 0.35s)
         );
       }
     }
