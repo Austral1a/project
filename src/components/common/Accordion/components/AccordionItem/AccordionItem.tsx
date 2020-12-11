@@ -9,7 +9,7 @@ interface AccordionItemProps {
   itemTitle: string;
   itemText: string;
   itemId: number;
-  isItemOpen: boolean | undefined;
+  isItemOpen: boolean;
   onItemToggle: () => void;
 }
 
