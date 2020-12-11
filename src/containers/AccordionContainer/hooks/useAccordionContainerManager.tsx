@@ -6,7 +6,7 @@ interface AccordionContainerResult {
 }
 
 export const useAccordionContainerManager = (): AccordionContainerResult => {
-  const [activeItemId, setActiveItemId] = useState<Key | null>(0);
+  const [activeItemId, setActiveItemId] = useState<Key>(0);
 
   const isItemActive = useCallback((id: number) => activeItemId === id, [
     activeItemId,
