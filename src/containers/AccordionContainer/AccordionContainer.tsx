@@ -3,23 +3,24 @@ import { Accordion, AccordionItem } from "@components";
 import { useAccordionContainerManager } from "./hooks";
 import { translation } from "@helpers";
 import classes from "./AccordionContainer.module.scss";
+import { BusinessAnalysts } from "./components/BAList";
 
 export const accordionItems = [
   {
-    title: "section1",
-    text: translation.accordionText,
+    title: "Business Analysts",
+    Content: BusinessAnalysts,
   },
   {
-    title: "section2",
-    text: translation.accordionText,
+    title: "Programmers",
+    Content: BusinessAnalysts,
   },
   {
-    title: "section3",
-    text: translation.accordionText,
+    title: "Project Managers",
+    Content: BusinessAnalysts,
   },
   {
-    title: "section4",
-    text: translation.accordionText,
+    title: "Quality Specialists",
+    Content: BusinessAnalysts,
   },
 ];
 
@@ -39,7 +40,7 @@ export const AccordionContainer: FC = (): ReactElement => {
               itemId={id}
               key={item.title}
               itemTitle={item.title}
-              itemText={item.text}
+              itemContent={<item.Content />}
               onItemToggle={() => onItemToggle(id)}
             />
           );

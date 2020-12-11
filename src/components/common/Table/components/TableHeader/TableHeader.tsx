@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classNames from "classnames";
-import classes from "./TableItem.module.scss";
+import classes from "./TableHeader.module.scss";
 
 interface TableHeaderProps {
   className?: string;
