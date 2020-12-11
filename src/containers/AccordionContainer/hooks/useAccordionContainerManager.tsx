@@ -19,8 +19,6 @@ export const useAccordionContainerManager = (): AccordionContainerResult => {
     [setActiveItemId]
   );
 
-  useEffect(() => setActiveItemId(activeItemId), []);
-
   return {
     isItemActive,
     onItemToggle,
