@@ -1,4 +1,4 @@
-import { Key, useCallback, useState } from "react";
+import { Key, useCallback, useEffect, useState } from "react";
 
 interface AccordionContainerResult {
   isItemActive: (id: number) => boolean;
@@ -6,7 +6,7 @@ interface AccordionContainerResult {
 }
 
 export const useAccordionContainerManager = (): AccordionContainerResult => {
-  const [activeItemId, setActiveItemId] = useState<Key | null>(null);
+  const [activeItemId, setActiveItemId] = useState<Key | null>(0);
 
   const isItemActive = useCallback((id: number) => activeItemId === id, [
     activeItemId,
@@ -18,6 +18,8 @@ export const useAccordionContainerManager = (): AccordionContainerResult => {
     },
     [setActiveItemId]
   );
+
+  useEffect(() => setActiveItemId(activeItemId), []);
 
   return {
     isItemActive,
