@@ -1,5 +1,7 @@
 export type Styles = {
-  accordion: string;
+  "accordion-page": string;
+  "accordion-page__accordion": string;
+  "accordion-page__title": string;
 };
 
 export type classes = keyof Styles;
