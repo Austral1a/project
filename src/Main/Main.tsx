@@ -2,7 +2,7 @@ import React, { FC, ReactElement } from "react";
 import { Sidebar, Header } from "@components";
 import { BrowserRouter as Router } from "react-router-dom";
 import classes from "../styles/Main.module.scss";
-import { MainRoutes } from "./routes/MainRoutes";
+import { MainRoutes } from "./routes";
 
 export const Main: FC = (): ReactElement => {
   return (
