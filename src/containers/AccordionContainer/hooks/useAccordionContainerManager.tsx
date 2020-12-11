@@ -1,4 +1,4 @@
-import { Key, useCallback, useEffect, useState } from "react";
+import { Key, useCallback, useState } from "react";
 
 interface AccordionContainerResult {
   isItemActive: (id: number) => boolean;
