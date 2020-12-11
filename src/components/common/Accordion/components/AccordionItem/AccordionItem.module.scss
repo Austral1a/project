@@ -52,6 +52,9 @@
 
     &-body {
       background-color: #fff;
+      overflow-y: auto;
+      max-height: 400px;
+      cursor: auto;
       @include accordionItemAnim(
         0,
         0,
