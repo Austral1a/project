@@ -18,11 +18,54 @@
 }
 
 @mixin fullScreen {
-  width: 100vw;
-  height: 100vh;
+  @include widthHeight(100vw, 100vh);
 }
 
 @mixin headerMenusPositionTopRight {
   top: 40px;
   right: 5px;
+}
+
+@mixin itemsAlignJustify($align, $justify) {
+  align-items: $align;
+  justify-items: $justify;
+}
+
+@mixin widthHeight($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin marginPadding($m, $p) {
+  margin: $m;
+  padding: $p;
+}
+
+@mixin minMaxWidth($min, $max) {
+  min-width: $min;
+  max-width: $max;
+}
+
+@mixin widthMinWidth($minW, $w) {
+  min-width: $minW;
+  width: $w;
+}
+
+@mixin resetShadow {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+@mixin grid($row, $col, $gap) {
+  display: grid;
+  grid-template-rows: $row;
+  grid-template-columns: $col;
+  grid-gap: $gap;
+}
+
+@mixin accordionItemAnim($fz, $op, $pd, $tr) {
+  font-size: $fz;
+  opacity: $op;
+  padding: $pd;
+  transition: $tr;
 }

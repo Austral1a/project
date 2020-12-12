@@ -7,8 +7,8 @@
     position: absolute;
     background-color: $overlay-bg-color;
     @include flexRow;
-    width: 100vw;
-    height: calc(100vh - 50px);
+    @include widthHeight(100vw, calc(100vh - 50px));
+    z-index: 55555;
   }
 
   &-background {
@@ -16,8 +16,7 @@
   }
 
   &-content {
-    width: 350px;
-    min-width: 150px;
+    @include widthMinWidth(150px, 350px);
     @include sidebarShadow;
     @include flexColumn;
     background-color: $sidebar-bg-color;
@@ -29,10 +28,8 @@
     }
 
     &__items {
-      display: grid;
-      grid-gap: 10px;
+      @include grid(repeat(3, 50px) auto, 1fr, 10px);
       height: 100%;
-      grid-template-rows: repeat(3, 50px) auto;
 
       &:last-child {
         align-items: end;
@@ -47,13 +44,16 @@
   .sidebar {
     &-overlay {
       background-color: inherit;
+      @include widthHeight(min-content, calc(100vh - 50px));
+    }
+
+    &-background {
+      display: none;
     }
 
     &-content {
-      -webkit-box-shadow: none;
-      box-shadow: none;
-      min-width: 55px;
-      max-width: 55px;
+      @include resetShadow;
+      @include minMaxWidth(55px, 55px);
 
       &__items {
         grid-template-columns: 55px;

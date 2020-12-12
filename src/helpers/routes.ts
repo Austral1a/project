@@ -1,6 +1,6 @@
 export enum RoutePath {
   home = "/",
-  item1 = "/item1",
+  accordion = "/accordion",
   item2 = "/item2",
   item3 = "/item3",
   settings = "/settings",

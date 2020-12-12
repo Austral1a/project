@@ -4,13 +4,12 @@ import { faStar } from "@fortawesome/free-solid-svg-icons/faStar";
 import classes from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import { RoutePath, translation } from "@helpers";
-import { Tooltip } from "../common";
-import { DropDownMenu } from "../common";
+import { Tooltip, DropDownMenu } from "@components";
 import { useHeaderManager } from "./hooks";
 
 const dropDownMenuItems = [
   {
-    title: translation.item1,
+    title: translation.accordion,
   },
   {
     title: translation.item2,
@@ -29,8 +28,8 @@ export const Header: FC = (): ReactElement => {
 
   return (
     <header className={classes["header"]}>
-      <Link className={classes["header__title"]} to={RoutePath.item1}>
-        Logo
+      <Link className={classes["header__title"]} to={RoutePath.accordion}>
+        {translation.headerLogoText}
       </Link>
       <FontAwesomeIcon
         className={classes["header__title-icon"]}

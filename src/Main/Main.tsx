@@ -1,8 +1,8 @@
 import React, { FC, ReactElement } from "react";
-import { Sidebar } from "@Sidebar";
+import { Sidebar, Header } from "@components";
 import { BrowserRouter as Router } from "react-router-dom";
-import classes from "./styles/Main.module.scss";
-import { Header } from "./components/Header";
+import classes from "../styles/Main.module.scss";
+import { MainRoutes } from "./routes";
 
 export const Main: FC = (): ReactElement => {
   return (
@@ -13,6 +13,7 @@ export const Main: FC = (): ReactElement => {
           <Sidebar />
         </div>
       </div>
+      <MainRoutes />
     </Router>
   );
 };

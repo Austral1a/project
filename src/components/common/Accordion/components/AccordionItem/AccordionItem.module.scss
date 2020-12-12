@@ -1,0 +1,75 @@
+@import "./src/styles/mixins";
+@import "./src/styles/variables";
+
+.accordion {
+  &__item {
+    position: relative;
+    border: 1px solid darken(#cacaca, 20%);
+    margin-bottom: 2px;
+    height: 100%;
+    cursor: pointer;
+
+    &-header {
+      @include widthHeight(100%, calc(160px / 4));
+      @include flexRow;
+      @include primary-transition;
+
+      align-items: center;
+      background-color: #cacaca;
+      padding-left: 8px;
+
+      &:hover {
+        @include primary-transition;
+        background-color: darken($accordion-item-header-bg-color, 20%);
+      }
+    }
+
+    &--active {
+      .accordion {
+        &__item {
+          &-header {
+            background-color: $accordion-item-active-header-bg-color;
+          }
+
+          &-icon {
+            @include primary-transition;
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+
+    &-title {
+      margin-left: 20px;
+    }
+
+    &-icon {
+      position: absolute;
+
+      transform: rotate(0deg);
+      @include primary-transition;
+    }
+
+    &-body {
+      background-color: #fff;
+      overflow-y: auto;
+      max-height: 400px;
+      cursor: auto;
+      @include accordionItemAnim(
+        0,
+        0,
+        0,
+        (opacity 0.3s, font-size 0.3s, padding 0.3s 0s)
+      );
+
+      &--expanded {
+        @include accordionItemAnim(
+          1rem,
+          1,
+          24px,
+          (font-size 0.3s, padding 0.3s, opacity 0.25s 0.25s)
+        );
+      }
+    }
+  }
+}

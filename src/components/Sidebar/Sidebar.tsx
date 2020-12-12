@@ -1,17 +1,17 @@
 import React, { FC, ReactElement } from "react";
-import classes from "./Sidebar.module.scss";
-import classNames from "classnames";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RoutePath, translation } from "@helpers";
-import { SidebarItem } from "./components";
+import { SidebarItem } from "@components";
 import { Routes } from "./routes";
 import { useSidebarManager } from "./hooks";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import classNames from "classnames";
+import classes from "./Sidebar.module.scss";
 
 const sidebarItems = [
   {
-    title: translation.item1,
-    route: RoutePath.item1,
+    title: translation.accordion,
+    route: RoutePath.accordion,
   },
   {
     title: translation.item2,

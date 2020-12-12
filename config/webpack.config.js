@@ -336,7 +336,8 @@ module.exports = function (webpackEnv) {
         ...(modules.webpackAliases || {}),
         "@helpers": path.resolve(__dirname, "../src/helpers/"),
         "@Assets": path.resolve(__dirname, "../src/assets/"),
-        "@Sidebar": path.resolve(__dirname, "../src/components/Sidebar/"),
+        "@components": path.resolve(__dirname, "../src/components/"),
+        "@containers": path.resolve(__dirname, "../src/containers/"),
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
