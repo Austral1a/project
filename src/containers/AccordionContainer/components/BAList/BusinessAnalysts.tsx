@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { EmployeeTable } from "@components";
+import { getBAEmployees } from "../../../../API";
 
 const baEmployees = [
   {
@@ -11,5 +12,9 @@ const baEmployees = [
 ];
 
 export const BusinessAnalysts = () => {
+  useEffect(() => {
+    console.log(getBAEmployees());
+  }, []);
+
   return <EmployeeTable employeeList={baEmployees} />;
 };

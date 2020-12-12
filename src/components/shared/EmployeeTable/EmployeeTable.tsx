@@ -18,7 +18,7 @@ export const EmployeeTable: FC<EmployeeTableProps> = ({ employeeList }) => {
       <div className="table__body">
         {employeeList.map((employee) => {
           return (
-            <TableItem className={classes["table__item"]}>
+            <TableItem key={employee.email} className={classes["table__item"]}>
               <h3>{employee.firstName}</h3>
               <h3>{employee.lastName}</h3>
               <h3>{employee.birthday}</h3>
