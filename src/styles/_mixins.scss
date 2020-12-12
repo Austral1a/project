@@ -63,9 +63,10 @@
   grid-gap: $gap;
 }
 
-@mixin accordionItemAnim($fz, $op, $pd, $tr) {
+@mixin accordionItemAnim($fz, $op, $pd, $mh, $tr) {
   font-size: $fz;
   opacity: $op;
   padding: $pd;
+  max-height: $mh;
   transition: $tr;
 }

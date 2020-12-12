@@ -7,7 +7,7 @@ import classes from "./AccordionItem.module.scss";
 interface AccordionItemProps {
   className?: string;
   itemTitle: string;
-  itemText: string;
+  itemContent: any;
   itemId: number;
   isItemOpen: boolean;
   onItemToggle: () => void;
@@ -16,7 +16,7 @@ interface AccordionItemProps {
 export const AccordionItem: FC<AccordionItemProps> = ({
   className,
   itemTitle,
-  itemText,
+  itemContent,
   onItemToggle,
   isItemOpen,
 }): ReactElement => {
@@ -61,7 +61,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
         role="tabpanel"
         aria-hidden={!isItemOpen}
       >
-        {itemText}
+        {itemContent}
       </div>
     </div>
   );
