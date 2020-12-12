@@ -10,10 +10,10 @@ export const EmployeeTable: FC<EmployeeTableProps> = ({ employeeList }) => {
   return (
     <Table className={classes["table"]}>
       <TableHeader className={classes["table__header"]}>
-        <h3>first name</h3>
-        <h3>last name</h3>
-        <h3>birthday</h3>
-        <h3>email</h3>
+        <h3>First name</h3>
+        <h3>Last name</h3>
+        <h3>Birthday</h3>
+        <h3>Email</h3>
       </TableHeader>
       <div className="table__body">
         {employeeList.map((employee) => {
