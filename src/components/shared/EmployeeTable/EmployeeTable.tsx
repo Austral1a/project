@@ -11,10 +11,10 @@ interface Employee {
 }
 
 interface EmployeeTableProps {
-  employeeList: Employee[];
+  employeesList: Employee[];
 }
 
-export const EmployeeTable: FC<EmployeeTableProps> = ({ employeeList }) => {
+export const EmployeeTable: FC<EmployeeTableProps> = ({ employeesList }) => {
   const { employeeTable } = translation;
 
   return (
@@ -26,8 +26,8 @@ export const EmployeeTable: FC<EmployeeTableProps> = ({ employeeList }) => {
         <h3>{employeeTable.email}</h3>
       </TableHeader>
       <div className="table__body">
-        {employeeList.length > 0 ? (
-          employeeList.map((employee, id) => {
+        {employeesList.length > 0 ? (
+          employeesList.map((employee, id) => {
             return (
               <TableItem
                 key={employee.email + id}

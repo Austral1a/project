@@ -10,10 +10,8 @@ type EmployeePosition =
 export const selectEmployees = (employeePosition: EmployeePosition) => {
   return createSelector(
     (state: EmployeeAwareState) => {
-      const {
-        employeesReducer: { employees },
-      } = state;
-      return employees[employeePosition];
+      const { employeesReducer } = state;
+      return employeesReducer[employeePosition].employees;
     },
     (employees) => employees
   );

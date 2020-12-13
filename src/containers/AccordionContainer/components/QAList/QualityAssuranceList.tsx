@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { EmployeeTable } from "@components";
-import { useSelector } from "react-redux";
-import { selectEmployees } from "@StoreEmployees";
+import { useDispatch, useSelector } from "react-redux";
+import { getQAEmployeesAction, selectEmployees } from "@StoreEmployees";
 
 export const QualityAssuranceList = () => {
-  const quialityAssurance = useSelector(selectEmployees("qualityAssurance"));
+  const qualityAssurance = useSelector(selectEmployees("qualityAssurance"));
 
-  return <EmployeeTable employeeList={quialityAssurance} />;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getQAEmployeesAction());
+  }, [dispatch]);
+
+  return <EmployeeTable employeesList={qualityAssurance} />;
 };

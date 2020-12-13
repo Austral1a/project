@@ -34,12 +34,6 @@ export const accordionItems = [
 export const AccordionContainer: FC = (): ReactElement => {
   const { isItemActive, onItemToggle } = useAccordionContainerManager();
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getEmployeesAction());
-  }, [dispatch]);
-
   return (
     <div className={classes["accordion-page"]}>
       <h2 className={classes["accordion-page__title"]}>

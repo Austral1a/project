@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { EmployeeTable } from "@components";
-import { useSelector } from "react-redux";
-import { selectEmployees } from "@StoreEmployees";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getProgrammersEmployeesAction,
+  selectEmployees,
+} from "@StoreEmployees";
 
 export const ProgrammersList = () => {
   const programmers = useSelector(selectEmployees("programmers"));
 
-  return <EmployeeTable employeeList={programmers} />;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProgrammersEmployeesAction());
+  }, [dispatch]);
+
+  return <EmployeeTable employeesList={programmers} />;
 };

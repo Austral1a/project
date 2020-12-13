@@ -1,13 +1,22 @@
-import { GetEmployeesFail, GetEmployeesSuccess } from "./actions";
+import {
+  GetBAEmployeesFail,
+  GetBAEmployeesSuccess,
+  GetPMEmployeesFail,
+  GetPMEmployeesSuccess,
+  GetProgrammersEmployeesFail,
+  GetProgrammersEmployeesSuccess,
+  GetQAEmployeesFail,
+  GetQAEmployeesSuccess,
+} from "./actions";
 
 export interface EmployeeAwareState {
   employeesReducer: EmployeeState;
 }
 
-export interface EmployeeState {
-  employees: EmployeesResponse;
-  name: string;
-  message: string;
+export interface EmployeesResponse {
+  employees: EmployeeResponse[];
+  name: "";
+  message: "";
 }
 
 export interface EmployeeResponse {
@@ -19,11 +28,19 @@ export interface EmployeeResponse {
   id: number;
 }
 
-export interface EmployeesResponse {
-  businessAnalysts: EmployeeResponse[];
-  qualityAssurance: EmployeeResponse[];
-  projectManagers: EmployeeResponse[];
-  programmers: EmployeeResponse[];
+export interface EmployeeState {
+  businessAnalysts: EmployeesResponse;
+  qualityAssurance: EmployeesResponse;
+  projectManagers: EmployeesResponse;
+  programmers: EmployeesResponse;
 }
 
-export type EmployeeAction = GetEmployeesSuccess | GetEmployeesFail;
+export type EmployeeAction =
+  | GetBAEmployeesSuccess
+  | GetBAEmployeesFail
+  | GetQAEmployeesSuccess
+  | GetQAEmployeesFail
+  | GetPMEmployeesSuccess
+  | GetPMEmployeesFail
+  | GetProgrammersEmployeesSuccess
+  | GetProgrammersEmployeesFail;

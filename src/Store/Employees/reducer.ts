@@ -2,14 +2,26 @@ import { EmployeeAction, EmployeeState } from "./interfaces";
 import { EmployeeActionType } from "./actions";
 
 const employeesInitState: EmployeeState = {
-  employees: {
-    businessAnalysts: [],
-    programmers: [],
-    projectManagers: [],
-    qualityAssurance: [],
+  businessAnalysts: {
+    employees: [],
+    name: "",
+    message: "",
   },
-  name: "",
-  message: "",
+  programmers: {
+    employees: [],
+    name: "",
+    message: "",
+  },
+  projectManagers: {
+    employees: [],
+    name: "",
+    message: "",
+  },
+  qualityAssurance: {
+    employees: [],
+    name: "",
+    message: "",
+  },
 };
 
 export const employeesReducer = (
@@ -17,17 +29,62 @@ export const employeesReducer = (
   action: EmployeeAction
 ) => {
   switch (action.type) {
-    case EmployeeActionType.GET_EMPLOYEES_SUCCESS:
+    case EmployeeActionType.GET_BA_EMPLOYEES_SUCCESS:
       return {
         ...state,
-        employees: action.payload,
+        businessAnalysts: {
+          ...state.businessAnalysts,
+          employees: action.payload,
+        },
       };
-    case EmployeeActionType.GET_EMPLOYEES_FAIL:
+    case EmployeeActionType.GET_BA_EMPLOYEES_FAIL:
       return {
         ...state,
-        name: action.payload.name,
-        message: action.payload.message,
+        businessAnalysts: { ...state.businessAnalysts, ...action.payload },
       };
+
+    case EmployeeActionType.GET_QA_EMPLOYEES_SUCCESS:
+      return {
+        ...state,
+        qualityAssurance: {
+          ...state.qualityAssurance,
+          employees: action.payload,
+        },
+      };
+    case EmployeeActionType.GET_QA_EMPLOYEES_FAIL:
+      return {
+        ...state,
+        qualityAssurance: { ...state.qualityAssurance, ...action.payload },
+      };
+
+    case EmployeeActionType.GET_PM_EMPLOYEES_SUCCESS:
+      return {
+        ...state,
+        projectManagers: {
+          ...state.projectManagers,
+          employees: action.payload,
+        },
+      };
+    case EmployeeActionType.GET_PM_EMPLOYEES_FAIL:
+      return {
+        ...state,
+        projectManagers: { ...state.projectManagers, ...action.payload },
+      };
+
+    case EmployeeActionType.GET_PROGRAMMERS_EMPLOYEES_SUCCESS:
+      return {
+        ...state,
+        programmers: {
+          ...state.programmers,
+          employees: action.payload,
+        },
+      };
+    case EmployeeActionType.GET_PROGRAMMERS_EMPLOYEES_FAIL:
+      return {
+        ...state,
+        programmers: { ...state.programmers, ...action.payload },
+      };
+
     default:
       return state;
   }
