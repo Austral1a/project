@@ -1,36 +1,29 @@
 import { resources } from "../url";
 import axios from "axios";
 
-export const getBAEmployees = async () => {
-  const {
-    employees: { businessAnalysts },
-  } = resources;
-  // TODO: Errors handle, maybe saga will handle
-  const response = await axios.get(businessAnalysts);
+export const getEmployees = async () => {
+  const { employees } = resources;
 
-  return response;
-};
+  const businessAnalysts = await axios
+    .get(employees.businessAnalysts)
+    .then((res) => res.data);
 
-export const getQAEmployees = async () => {
-  const {
-    employees: { qualityAssurance },
-  } = resources;
+  const qualityAssurance = await axios
+    .get(employees.qualityAssurance)
+    .then((res) => res.data);
 
-  const response = await axios.get(qualityAssurance);
-};
+  const projectManagers = await axios
+    .get(employees.projectManagers)
+    .then((res) => res.data);
 
-export const getPMEmployees = async () => {
-  const {
-    employees: { projectManagers },
-  } = resources;
+  const programmers = await axios
+    .get(employees.programmers)
+    .then((employees) => employees.data);
 
-  const response = await axios.get(projectManagers);
-};
-
-export const getProgrammersEmployees = async () => {
-  const {
-    employees: { programmers },
-  } = resources;
-
-  const response = await axios.get(programmers);
+  return {
+    businessAnalysts,
+    qualityAssurance,
+    projectManagers,
+    programmers,
+  };
 };

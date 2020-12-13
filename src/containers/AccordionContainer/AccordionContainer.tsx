@@ -1,31 +1,44 @@
-import React, { FC, ReactElement } from "react";
+import React, { FC, ReactElement, useEffect } from "react";
 import { Accordion, AccordionItem } from "@components";
 import { useAccordionContainerManager } from "./hooks";
 import { translation } from "@helpers";
 import classes from "./AccordionContainer.module.scss";
-import { BusinessAnalysts } from "./components/BAList";
+import {
+  BusinessAnalystsList,
+  ProgrammersList,
+  ProjectManagersList,
+  QualityAssuranceList,
+} from "./components";
+import { useDispatch } from "react-redux";
+import { getEmployeesAction } from "@StoreEmployees";
 
 export const accordionItems = [
   {
     title: "Business Analysts",
-    Content: BusinessAnalysts,
+    Employees: BusinessAnalystsList,
   },
   {
     title: "Programmers",
-    Content: BusinessAnalysts,
+    Employees: ProgrammersList,
   },
   {
     title: "Project Managers",
-    Content: BusinessAnalysts,
+    Employees: ProjectManagersList,
   },
   {
     title: "Quality Specialists",
-    Content: BusinessAnalysts,
+    Employees: QualityAssuranceList,
   },
 ];
 
 export const AccordionContainer: FC = (): ReactElement => {
   const { isItemActive, onItemToggle } = useAccordionContainerManager();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getEmployeesAction());
+  }, [dispatch]);
 
   return (
     <div className={classes["accordion-page"]}>
@@ -40,7 +53,7 @@ export const AccordionContainer: FC = (): ReactElement => {
               itemId={id}
               key={item.title}
               itemTitle={item.title}
-              itemContent={<item.Content />}
+              itemContent={<item.Employees />}
               onItemToggle={() => onItemToggle(id)}
             />
           );

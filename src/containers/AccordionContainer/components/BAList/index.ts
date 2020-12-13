@@ -1,1 +1,1 @@
-export * from "./BusinessAnalysts";
+export * from "./BusinessAnalystsList";
