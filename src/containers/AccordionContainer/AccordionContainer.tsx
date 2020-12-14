@@ -12,19 +12,19 @@ import {
 
 export const accordionItems = [
   {
-    title: "Business Analysts",
+    title: translation.accordionItems.ba,
     Employees: BusinessAnalystsList,
   },
   {
-    title: "Programmers",
+    title: translation.accordionItems.programmers,
     Employees: ProgrammersList,
   },
   {
-    title: "Project Managers",
+    title: translation.accordionItems.pm,
     Employees: ProjectManagersList,
   },
   {
-    title: "Quality Specialists",
+    title: translation.accordionItems.qa,
     Employees: QualityAssuranceList,
   },
 ];
