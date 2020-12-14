@@ -10,21 +10,25 @@ import {
   QualityAssuranceList,
 } from "./components";
 
+const {
+  accordionItems: { pm, programmers, ba, qa },
+} = translation;
+
 export const accordionItems = [
   {
-    title: translation.accordionItems.ba,
+    title: ba,
     Employees: BusinessAnalystsList,
   },
   {
-    title: translation.accordionItems.programmers,
+    title: programmers,
     Employees: ProgrammersList,
   },
   {
-    title: translation.accordionItems.pm,
+    title: pm,
     Employees: ProjectManagersList,
   },
   {
-    title: translation.accordionItems.qa,
+    title: qa,
     Employees: QualityAssuranceList,
   },
 ];

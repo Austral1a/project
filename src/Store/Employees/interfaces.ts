@@ -21,12 +21,12 @@ export interface EmployeeState {
 }
 
 export interface EmployeesResponse {
-  employees: EmployeeResponse[];
+  employees: Employee[];
   name: "";
   message: "";
 }
 
-export interface EmployeeResponse {
+export interface Employee {
   firstName: string;
   lastName: string;
   email: string;

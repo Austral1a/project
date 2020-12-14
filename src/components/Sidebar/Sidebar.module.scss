@@ -2,12 +2,11 @@
 @import "../../styles/mixins";
 
 .sidebar {
+  margin: 0;
   &-overlay {
-    @include fullScreen;
     position: absolute;
     background-color: $overlay-bg-color;
     @include flexRow;
-    @include widthHeight(100vw, calc(100vh - 50px));
     z-index: 55555;
   }
 
@@ -16,9 +15,9 @@
   }
 
   &-content {
-    @include widthMinWidth(150px, 350px);
     @include sidebarShadow;
     @include flexColumn;
+    min-height: calc(100vh - 55px);
     background-color: $sidebar-bg-color;
 
     &__burger {
@@ -29,7 +28,6 @@
 
     &__items {
       @include grid(repeat(3, 50px) auto, 1fr, 10px);
-      height: 100%;
 
       &:last-child {
         align-items: end;
@@ -39,12 +37,11 @@
 }
 
 .sidebar--closed {
-  width: 55px;
-
+  margin: 0;
   .sidebar {
     &-overlay {
+      max-width: 55px;
       background-color: inherit;
-      @include widthHeight(min-content, calc(100vh - 50px));
     }
 
     &-background {
@@ -52,16 +49,21 @@
     }
 
     &-content {
+      width: 55px;
+      height: 100vh;
       @include resetShadow;
-      @include minMaxWidth(55px, 55px);
 
       &__items {
-        grid-template-columns: 55px;
-
         h3 {
           display: none;
         }
       }
     }
+  }
+}
+
+.main {
+  &__content {
+    width: 100%;
   }
 }

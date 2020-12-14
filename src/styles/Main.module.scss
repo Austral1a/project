@@ -9,12 +9,13 @@
 }
 
 .root {
-  @include fullScreen;
-  @include flexColumn;
+  display: grid;
+  grid-template-rows: 55px 1fr;
+  width: 100%;
 }
 
 .main {
-  @include grid(1fr, 55px 1fr, 0);
-  height: calc(100% - 50px);
+  display: grid;
+  grid-template-columns: 55px 1fr;
   background-color: $main-bg-color;
 }

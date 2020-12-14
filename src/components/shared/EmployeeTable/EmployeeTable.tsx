@@ -2,13 +2,7 @@ import React, { FC } from "react";
 import { Table, TableHeader, TableItem } from "@components";
 import classes from "./EmployeeTable.module.scss";
 import { translation } from "@helpers";
-
-interface Employee {
-  firstName: string;
-  lastName: string;
-  birthday: string;
-  email: string;
-}
+import { Employee } from "@StoreEmployees";
 
 interface EmployeeTableProps {
   employeesList: Employee[];
@@ -27,12 +21,9 @@ export const EmployeeTable: FC<EmployeeTableProps> = ({ employeesList }) => {
       </TableHeader>
       <div className="table__body">
         {employeesList.length > 0 ? (
-          employeesList.map((employee, id) => {
+          employeesList.map((employee) => {
             return (
-              <TableItem
-                key={employee.email + id}
-                className={classes["table__item"]}
-              >
+              <TableItem key={employee.id} className={classes["table__item"]}>
                 <h3>{employee.firstName}</h3>
                 <h3>{employee.lastName}</h3>
                 <h3>{employee.birthday}</h3>

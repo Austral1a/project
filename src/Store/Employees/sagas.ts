@@ -11,11 +11,12 @@ import {
   getQAEmployeesFail,
   getQAEmployeesSuccess,
 } from "./actions";
+import { EmployeePosition } from "./selectors";
 
 // Business Analysts
 export function* getBAEmployeesSaga() {
   try {
-    const businessAnalysts = yield call(getEmployees, "businessAnalysts");
+    const businessAnalysts = yield call(getEmployees, EmployeePosition.BA);
     yield put(getBAEmployeesSuccess(businessAnalysts));
   } catch (error) {
     yield put(getBAEmployeesFail(error));
@@ -25,7 +26,7 @@ export function* getBAEmployeesSaga() {
 // Quality Assurance
 export function* getQAEmployeesSaga() {
   try {
-    const qualityAssurance = yield call(getEmployees, "qualityAssurance");
+    const qualityAssurance = yield call(getEmployees, EmployeePosition.QA);
     yield put(getQAEmployeesSuccess(qualityAssurance));
   } catch (error) {
     yield put(getQAEmployeesFail(error));
@@ -35,7 +36,7 @@ export function* getQAEmployeesSaga() {
 // Project Managers
 export function* getPMEmployeesSaga() {
   try {
-    const projectManagers = yield call(getEmployees, "projectManagers");
+    const projectManagers = yield call(getEmployees, EmployeePosition.PM);
     yield put(getPMEmployeesSuccess(projectManagers));
   } catch (error) {
     yield put(getPMEmployeesFail(error));
@@ -45,7 +46,7 @@ export function* getPMEmployeesSaga() {
 // Programmers
 export function* getProgrammersEmployeesSaga() {
   try {
-    const programmers = yield call(getEmployees, "programmers");
+    const programmers = yield call(getEmployees, EmployeePosition.PROGRAMMERS);
     yield put(getProgrammersEmployeesSuccess(programmers));
   } catch (error) {
     yield put(getProgrammersEmployeesFail(error));
