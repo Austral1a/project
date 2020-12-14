@@ -42,7 +42,7 @@ export const EmployeeTable: FC<EmployeeTableProps> = ({ employeesList }) => {
           })
         ) : (
           <h3 className={classes["table__item--no-data"]}>
-            There are no employees
+            {employeeTable.noData}
           </h3>
         )}
       </div>

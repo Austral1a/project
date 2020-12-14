@@ -1,10 +1,5 @@
 import { call, put, takeLatest, all } from "redux-saga/effects";
-import {
-  getBAEmployees,
-  getPMEmployees,
-  getProgrammersEmployees,
-  getQAEmployees,
-} from "../../API";
+import { getEmployees } from "@API";
 import {
   EmployeeActionType,
   getBAEmployeesFail,
@@ -17,41 +12,41 @@ import {
   getQAEmployeesSuccess,
 } from "./actions";
 
-// BA
+// Business Analysts
 export function* getBAEmployeesSaga() {
   try {
-    const businessAnalysts = yield call(getBAEmployees);
+    const businessAnalysts = yield call(getEmployees, "businessAnalysts");
     yield put(getBAEmployeesSuccess(businessAnalysts));
   } catch (error) {
     yield put(getBAEmployeesFail(error));
   }
 }
 
-// QA
+// Quality Assurance
 export function* getQAEmployeesSaga() {
   try {
-    const qualityAssurance = yield call(getQAEmployees);
+    const qualityAssurance = yield call(getEmployees, "qualityAssurance");
     yield put(getQAEmployeesSuccess(qualityAssurance));
   } catch (error) {
     yield put(getQAEmployeesFail(error));
   }
 }
 
-//PM
+// Project Managers
 export function* getPMEmployeesSaga() {
   try {
-    const qualityAssurance = yield call(getPMEmployees);
-    yield put(getPMEmployeesSuccess(qualityAssurance));
+    const projectManagers = yield call(getEmployees, "projectManagers");
+    yield put(getPMEmployeesSuccess(projectManagers));
   } catch (error) {
     yield put(getPMEmployeesFail(error));
   }
 }
 
-//Programmers
+// Programmers
 export function* getProgrammersEmployeesSaga() {
   try {
-    const qualityAssurance = yield call(getProgrammersEmployees);
-    yield put(getProgrammersEmployeesSuccess(qualityAssurance));
+    const programmers = yield call(getEmployees, "programmers");
+    yield put(getProgrammersEmployeesSuccess(programmers));
   } catch (error) {
     yield put(getProgrammersEmployeesFail(error));
   }

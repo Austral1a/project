@@ -12,5 +12,6 @@ export const translation = {
     lastName: "Last Name",
     birthday: "Birthday",
     email: "Email",
+    noData: "There are no employees",
   },
 };

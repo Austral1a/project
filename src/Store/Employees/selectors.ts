@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { EmployeeAwareState } from "./interfaces";
 
-type EmployeePosition =
+export type EmployeePosition =
   | "businessAnalysts"
   | "qualityAssurance"
   | "projectManagers"

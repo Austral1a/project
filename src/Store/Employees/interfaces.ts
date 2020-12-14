@@ -13,6 +13,13 @@ export interface EmployeeAwareState {
   employeesReducer: EmployeeState;
 }
 
+export interface EmployeeState {
+  businessAnalysts: EmployeesResponse;
+  qualityAssurance: EmployeesResponse;
+  projectManagers: EmployeesResponse;
+  programmers: EmployeesResponse;
+}
+
 export interface EmployeesResponse {
   employees: EmployeeResponse[];
   name: "";
@@ -26,13 +33,6 @@ export interface EmployeeResponse {
   birthday: string;
   position: string;
   id: number;
-}
-
-export interface EmployeeState {
-  businessAnalysts: EmployeesResponse;
-  qualityAssurance: EmployeesResponse;
-  projectManagers: EmployeesResponse;
-  programmers: EmployeesResponse;
 }
 
 export type EmployeeAction =

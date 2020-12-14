@@ -15,6 +15,7 @@
     @include widthHeight(1000px, max-content);
     @include flexColumn;
 
+    //max-width: 1000px;
     &:last-child {
       border-bottom: 0;
     }

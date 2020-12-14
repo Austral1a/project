@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useEffect } from "react";
+import React, { FC, ReactElement } from "react";
 import { Accordion, AccordionItem } from "@components";
 import { useAccordionContainerManager } from "./hooks";
 import { translation } from "@helpers";
@@ -9,8 +9,6 @@ import {
   ProjectManagersList,
   QualityAssuranceList,
 } from "./components";
-import { useDispatch } from "react-redux";
-import { getEmployeesAction } from "@StoreEmployees";
 
 export const accordionItems = [
   {

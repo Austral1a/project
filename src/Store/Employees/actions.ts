@@ -2,10 +2,6 @@ import { FSAAuto, ErrorFSAAuto } from "flux-standard-action";
 import { EmployeesResponse } from "./interfaces";
 
 export enum EmployeeActionType {
-  GET_EMPLOYEES = "GET_EMPLOYEES",
-  GET_EMPLOYEES_SUCCESS = "GET_EMPLOYEES_SUCCESS",
-  GET_EMPLOYEES_FAIL = "GET_EMPLOYEES_FAIL",
-
   GET_BA_EMPLOYEES = "GET_BA_EMPLOYEES",
   GET_BA_EMPLOYEES_SUCCESS = "GET_BA_EMPLOYEES_SUCCESS",
   GET_BA_EMPLOYEES_FAIL = "GET_BA_EMPLOYEES_FAIL",
@@ -23,7 +19,7 @@ export enum EmployeeActionType {
   GET_PROGRAMMERS_EMPLOYEES_FAIL = "GET_PROGRAMMERS_EMPLOYEES_FAIL",
 }
 
-//////////////////////
+// Business Analysts
 export type GetBAEmployeesRequest = FSAAuto<
   typeof EmployeeActionType.GET_BA_EMPLOYEES
 >;
@@ -55,8 +51,7 @@ export const getBAEmployeesFail = (payload: Error): GetBAEmployeesFail => ({
   error: true,
 });
 
-//////QA////////
-
+// Quality Assurance
 export type GetQAEmployeesRequest = FSAAuto<
   typeof EmployeeActionType.GET_QA_EMPLOYEES
 >;
@@ -88,7 +83,7 @@ export const getQAEmployeesFail = (payload: Error): GetQAEmployeesFail => ({
   error: true,
 });
 
-// PM
+// Project Managers
 export type GetPMEmployeesRequest = FSAAuto<
   typeof EmployeeActionType.GET_PM_EMPLOYEES
 >;
@@ -150,40 +145,6 @@ export const getProgrammersEmployeesFail = (
   payload: Error
 ): GetProgrammersEmployeesFail => ({
   type: EmployeeActionType.GET_PROGRAMMERS_EMPLOYEES_FAIL,
-  payload,
-  error: true,
-});
-
-////////////////////////////////////////////////
-
-// GET EMPLOYEES
-export type GetEmployeesRequest = FSAAuto<
-  typeof EmployeeActionType.GET_EMPLOYEES
->;
-
-export type GetEmployeesSuccess = FSAAuto<
-  typeof EmployeeActionType.GET_EMPLOYEES_SUCCESS,
-  EmployeesResponse
->;
-
-export type GetEmployeesFail = ErrorFSAAuto<
-  typeof EmployeeActionType.GET_EMPLOYEES_FAIL,
-  Error
->;
-
-export const getEmployeesAction = (): GetEmployeesRequest => ({
-  type: EmployeeActionType.GET_EMPLOYEES,
-});
-
-export const getEmployeesSuccess = (
-  payload: EmployeesResponse
-): GetEmployeesSuccess => ({
-  type: EmployeeActionType.GET_EMPLOYEES_SUCCESS,
-  payload,
-});
-
-export const getEmployeesFail = (payload: Error): GetEmployeesFail => ({
-  type: EmployeeActionType.GET_EMPLOYEES_FAIL,
   payload,
   error: true,
 });
