@@ -13,7 +13,7 @@ export const Accordion: FC<AccordionProps> = ({
   const customClasses = classNames(classes["accordion"], className);
 
   return (
-    <div role={"tablist"} className={customClasses}>
+    <div role="tablist" className={customClasses}>
       {children}
     </div>
   );

@@ -49,7 +49,7 @@ export const AccordionContainer: FC = (): ReactElement => {
               itemId={id}
               key={item.title}
               itemTitle={item.title}
-              itemContent={<item.Employees />}
+              itemContent={isItemActive(id) && <item.Employees />}
               onItemToggle={() => onItemToggle(id)}
             />
           );
