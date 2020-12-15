@@ -4,10 +4,11 @@
 .sidebar {
   margin: 0;
   &-overlay {
+    @include flexRow;
     position: absolute;
     background-color: $overlay-bg-color;
-    @include flexRow;
     z-index: 55555;
+    width: 100%;
   }
 
   &-background {
@@ -15,9 +16,10 @@
   }
 
   &-content {
+    @include widthMaxWidth(300px, 450px);
     @include sidebarShadow;
     @include flexColumn;
-    min-height: calc(100vh - 55px);
+    height: calc(100vh - 55px);
     background-color: $sidebar-bg-color;
 
     &__burger {
@@ -27,7 +29,8 @@
     }
 
     &__items {
-      @include grid(repeat(3, 50px) auto, 1fr, 10px);
+      height: 100%;
+      @include grid(repeat(3, 50px) auto, auto, 10px);
 
       &:last-child {
         align-items: end;
@@ -37,10 +40,9 @@
 }
 
 .sidebar--closed {
-  margin: 0;
   .sidebar {
     &-overlay {
-      max-width: 55px;
+      @include heightMaxWidth(inherit, 55px);
       background-color: inherit;
     }
 
@@ -49,8 +51,8 @@
     }
 
     &-content {
+      @include minMaxWidth(55px, 55px);
       width: 55px;
-      height: 100vh;
       @include resetShadow;
 
       &__items {
@@ -64,6 +66,8 @@
 
 .main {
   &__content {
-    width: 100%;
+    @include widthHeight(100%, calc(100vh - 55px));
+    display: block;
+    overflow: auto;
   }
 }

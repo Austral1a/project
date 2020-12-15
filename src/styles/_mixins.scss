@@ -46,6 +46,16 @@
   max-width: $max;
 }
 
+@mixin heightMaxWidth($h, $maxW) {
+  height: $h;
+  max-width: $maxW;
+}
+
+@mixin widthMaxWidth($w, $max) {
+  width: $w;
+  max-width: $max;
+}
+
 @mixin widthMinWidth($minW, $w) {
   min-width: $minW;
   width: $w;
