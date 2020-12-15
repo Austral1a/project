@@ -1,4 +1,6 @@
 export type Styles = {
+  main__content: string;
+  sidebar: string;
   "sidebar--closed": string;
   "sidebar-background": string;
   "sidebar-content": string;

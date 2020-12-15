@@ -3,16 +3,14 @@
 
 .accordion-page {
   @include flexColumn;
-  margin-top: 5px;
-
   &__title {
     text-align: center;
   }
 
   &__accordion {
+    @include widthHeight(1000px, max-content);
     margin: 12px 0 0 14px;
     border: 2px solid $text-color;
-    @include widthHeight(400px, max-content);
     @include flexColumn;
 
     &:last-child {

@@ -21,15 +21,15 @@
   }
 
   &-text {
-    padding-left: 10px;
     @include primary-transition;
+    padding-left: 10px;
     color: $text-color;
   }
 
   &:hover {
     & > * {
-      color: darken($text-color, 10%);
       @include primary-transition;
+      color: darken($text-color, 10%);
     }
   }
 }

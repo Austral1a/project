@@ -46,6 +46,16 @@
   max-width: $max;
 }
 
+@mixin heightMaxWidth($h, $maxW) {
+  height: $h;
+  max-width: $maxW;
+}
+
+@mixin widthMaxWidth($w, $max) {
+  width: $w;
+  max-width: $max;
+}
+
 @mixin widthMinWidth($minW, $w) {
   min-width: $minW;
   width: $w;
@@ -63,9 +73,10 @@
   grid-gap: $gap;
 }
 
-@mixin accordionItemAnim($fz, $op, $pd, $tr) {
+@mixin accordionItemAnim($fz, $op, $pd, $mh, $tr) {
   font-size: $fz;
   opacity: $op;
   padding: $pd;
+  max-height: $mh;
   transition: $tr;
 }

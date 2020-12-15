@@ -35,7 +35,7 @@ export const Sidebar: FC = (): ReactElement => {
   } = useSidebarManager();
 
   const customClasses = classNames(
-    !isSidebarOpen && classes["sidebar--closed"]
+    !isSidebarOpen ? classes["sidebar--closed"] : classes["sidebar"]
   );
 
   return (
@@ -66,7 +66,9 @@ export const Sidebar: FC = (): ReactElement => {
           />
         </div>
       </div>
-      <Routes />
+      <div className={classes["main__content"]}>
+        <Routes />
+      </div>
     </>
   );
 };

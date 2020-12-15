@@ -12,7 +12,9 @@
       "@Assets": [ "src/assets"],
       "@helpers": ["src/helpers"],
       "@components": ["src/components/"],
-      "@containers": ["src/containers/"]
+      "@containers": ["src/containers/"],
+      "@StoreEmployees": ["src/Store/Employees/"],
+      "@API": ["src/API/"]
     },
     "allowJs": true,
     "skipLibCheck": true,
