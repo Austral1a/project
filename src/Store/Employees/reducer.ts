@@ -1,27 +1,17 @@
-import { EmployeeAction, EmployeeState } from "./interfaces";
+import { EmployeeAction, EmployeesResponse, EmployeeState } from "./interfaces";
 import { EmployeeActionType } from "./actions";
 
+const employeeInitState: EmployeesResponse = {
+  employees: [],
+  name: "",
+  message: "",
+};
+
 const employeesInitState: EmployeeState = {
-  businessAnalysts: {
-    employees: [],
-    name: "",
-    message: "",
-  },
-  programmers: {
-    employees: [],
-    name: "",
-    message: "",
-  },
-  projectManagers: {
-    employees: [],
-    name: "",
-    message: "",
-  },
-  qualityAssurance: {
-    employees: [],
-    name: "",
-    message: "",
-  },
+  businessAnalysts: employeeInitState,
+  programmers: employeeInitState,
+  projectManagers: employeeInitState,
+  qualityAssurance: employeeInitState,
 };
 
 export const employeesReducer = (
