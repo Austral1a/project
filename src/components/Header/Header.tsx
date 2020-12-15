@@ -12,7 +12,7 @@ const dropDownMenuItems = [
     title: translation.accordion,
   },
   {
-    title: translation.item2,
+    title: translation.tabs,
   },
 ];
 

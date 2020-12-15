@@ -14,8 +14,8 @@ const sidebarItems = [
     route: RoutePath.accordion,
   },
   {
-    title: translation.item2,
-    route: RoutePath.item2,
+    title: translation.tabs,
+    route: RoutePath.tabs,
   },
   {
     title: translation.item3,

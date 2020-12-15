@@ -1,6 +1,6 @@
 export const translation = {
   accordion: "Accordion",
-  item2: "Item2",
+  tabs: "Tabs",
   item3: "Item3",
   settings: "Settings",
   headerTooltipText: "Menu",

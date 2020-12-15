@@ -1,0 +1,38 @@
+@import "src/styles/mixins";
+
+.tab {
+  margin: 0;
+  width: max-content;
+  &__header {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    border-bottom: 2px solid gray;
+  }
+
+  &__active-line {
+    display: block;
+    position: relative;
+    width: 33%;
+    min-height: 4px;
+    top: -33px;
+    left: 0;
+    @include primary-transition;
+    background: gray;
+  }
+
+  @for $i from 1 through 3 {
+    .tab__header:nth-child(#{$i}) ~ .tab__active-line {
+      .tab__header:nth-child(#{$i}) [class~="active"] {
+        .tab__active-line {
+          left: 33% * $i - 33%;
+          background: black;
+        }
+      }
+    }
+  }
+
+  &__body {
+    margin: 0;
+  }
+}

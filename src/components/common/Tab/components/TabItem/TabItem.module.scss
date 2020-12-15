@@ -1,0 +1,28 @@
+@import "src/styles/mixins";
+@import "src/styles/variables";
+
+.tab {
+  margin: 0;
+  &__title {
+    padding: 10px 10px;
+    color: black;
+    cursor: pointer;
+    width: 120px;
+    text-align: center;
+
+    @include primary-transition;
+
+    &--active {
+      margin: 0;
+    }
+
+    &--inactive {
+      margin: 0;
+    }
+
+    &:hover {
+      @include primary-transition;
+      color: #4477ff;
+    }
+  }
+}
