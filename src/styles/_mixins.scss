@@ -7,6 +7,10 @@
   transition: all 0.2s linear;
 }
 
+@mixin tab-transition {
+  transition: all .3s cubic-bezier(.76,-0.43,.09,1.26);
+}
+
 @mixin flexRow {
   display: flex;
   flex-direction: row;
@@ -79,4 +83,10 @@
   padding: $pd;
   max-height: $mh;
   transition: $tr;
+}
+
+@mixin topLeftPosition($pos, $t, $l) {
+  position: $pos;
+  top: $t;
+  left: $l;
 }

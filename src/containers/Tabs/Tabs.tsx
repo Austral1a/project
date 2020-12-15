@@ -3,11 +3,14 @@ import { translation } from "@helpers";
 import { Tab } from "@components";
 import classes from "./Tabs.module.scss";
 
-// TODO: translation
+const {
+  tabsItems: { item2, item3, item1 },
+} = translation;
+
 const tabValues = [
-  { title: "item #1", content: "Content1" },
-  { title: "item #2", content: "Content2" },
-  { title: "item #3", content: "Content3" },
+  { title: item1.title, content: item1.content },
+  { title: item2.title, content: item2.content },
+  { title: item3.title, content: item3.content },
 ];
 
 export const Tabs: FC = (): ReactElement => {

@@ -5,20 +5,11 @@
   margin: 0;
   &__title {
     padding: 10px 10px;
-    color: black;
+    color: darken($text-color, 100%);
     cursor: pointer;
     width: 120px;
     text-align: center;
-
     @include primary-transition;
-
-    &--active {
-      margin: 0;
-    }
-
-    &--inactive {
-      margin: 0;
-    }
 
     &:hover {
       @include primary-transition;
