@@ -7,13 +7,12 @@
     padding: 10px 10px;
     color: darken($text-color, 100%);
     cursor: pointer;
-    width: 120px;
     text-align: center;
     @include primary-transition;
 
     &:hover {
       @include primary-transition;
-      color: #4477ff;
+      color: $active-tab-bg-color;
     }
   }
 }

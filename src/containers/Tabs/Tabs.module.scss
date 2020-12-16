@@ -1,3 +1,11 @@
-.tabs {
-  padding: 10px 0 0 15px;
+.tabs-page {
+  padding: 10px 10px 0 15px;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__tab {
+    font-weight: bolder;
+  }
 }

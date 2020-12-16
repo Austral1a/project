@@ -1,5 +1,7 @@
 export type Styles = {
-  tabs: string;
+  "tabs-page": string;
+  "tabs-page__tab": string;
+  "tabs-page__title": string;
 };
 
 export type classes = keyof Styles;

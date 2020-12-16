@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useState } from "react";
+import React, { FC, ReactElement, useRef } from "react";
 import classNames from "classnames";
 import classes from "./Tab.module.scss";
 import { TabItem } from "./components";
@@ -11,16 +11,25 @@ interface TabProps {
 
 export const Tab: FC<TabProps> = ({ className, tabValues }): ReactElement => {
   const tabClasses = classNames(classes["tab"], className);
-  const tabHeaderClasses = classNames(classes["tab__header"], className);
+  const tabHeaderClasses = classNames(classes["tab__header"]);
 
-  const { activeTab, activeLineStyle, activateTab } = useTabManager(tabValues);
+  const tabHeaderRef = useRef<HTMLDivElement>(null);
+
+  const { activeTab, activeLineStyle, activateTab } = useTabManager(
+    tabValues,
+    tabHeaderRef
+  );
 
   return (
     <div className={tabClasses}>
-      <div className={tabHeaderClasses}>
+      <div ref={tabHeaderRef} className={tabHeaderClasses}>
         {tabValues.map((item: any, id) => {
           return (
-            <TabItem onClick={() => activateTab(id)} className={"tab_title"}>
+            <TabItem
+              key={item.title}
+              onClick={() => activateTab(id)}
+              className="tab_title"
+            >
               {item.title}
             </TabItem>
           );

@@ -15,11 +15,11 @@ const tabValues = [
 
 export const Tabs: FC = (): ReactElement => {
   return (
-    <div className={classes["tabs"]}>
-      <div>
+    <div className={classes["tabs-page"]}>
+      <div className={classes["tabs-page__title"]}>
         <h2>{translation.tabs}</h2>
       </div>
-      <Tab tabValues={tabValues} />
+      <Tab className={classes["tabs-page__tab"]} tabValues={tabValues} />
     </div>
   );
 };

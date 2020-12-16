@@ -1,4 +1,4 @@
-import { CSSProperties, useCallback, useState } from "react";
+import React, { CSSProperties, useCallback, useEffect, useState } from "react";
 
 interface TabManagerResult {
   activeTab: number;
@@ -6,19 +6,28 @@ interface TabManagerResult {
   activeLineStyle: CSSProperties;
 }
 
-export const useTabManager = (tabValues: any): TabManagerResult => {
+export const useTabManager = (
+  tabValues: any,
+  tabHeaderRef: React.RefObject<HTMLDivElement>
+): TabManagerResult => {
   const [activeTab, setActiveTab] = useState<number>(0);
+
+  const [tabHeaderWidth, setTabHeaderWidth] = useState<number>(0);
 
   const activateTab = useCallback((id: number) => {
     setActiveTab(id);
   }, []);
 
   const activeLineStyle = {
-    width: `${100 / tabValues.length}%`,
-    left: `calc(${100 / tabValues.length}% * ${activeTab + 1} - ${
-      100 / tabValues.length
-    }%)`,
+    width: tabHeaderWidth / tabValues.length,
+    left:
+      (tabHeaderWidth / tabValues.length) * (activeTab + 1) -
+      tabHeaderWidth / tabValues.length,
   };
+
+  useEffect(() => {
+    setTabHeaderWidth(tabHeaderRef.current!.clientWidth);
+  }, [tabHeaderRef]);
 
   return {
     activeTab,

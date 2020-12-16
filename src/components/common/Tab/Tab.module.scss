@@ -3,22 +3,31 @@
 
 .tab {
   margin: 0;
-  width: min-content;
+
   &__header {
     @include flexRow;
     margin-bottom: 30px;
-    border-bottom: 2px solid gray;
+    width: max-content;
   }
 
   &__active-line {
-    display: block;
-    min-height: 4px;
     @include topLeftPosition(relative, -33px, 0);
     @include tab-transition;
+    display: block;
+    min-height: 3px;
     background: $active-tab-bg-color;
+    z-index: 1;
   }
 
   &__body {
-    margin: 0;
+    &::before {
+      display: block;
+      content: "";
+      background: darken($text-color, 50%);
+      height: 3px;
+      position: relative;
+      top: -36px;
+      z-index: 0;
+    }
   }
 }
