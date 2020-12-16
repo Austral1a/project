@@ -11,8 +11,11 @@ export const useTabManager = (
   tabValues: any,
   tabHeaderRef: React.RefObject<any>
 ): TabManagerResult => {
-  const [activeTab, setActiveTab] = useState<number>(0);
+  const location = useLocation();
 
+  const [activeTab, setActiveTab] = useState<number>(
+    +location.pathname[location.pathname.length - 1] - 1
+  );
   const [tabWidth, setTabWidth] = useState<number>(0);
 
   const activeLineStyle = {
@@ -20,7 +23,9 @@ export const useTabManager = (
     left: tabWidth * (activeTab + 1) - tabWidth,
   };
 
-  useLocation();
+  useEffect(() => {
+    setActiveTab(activeTab);
+  }, [setActiveTab, activeTab]);
 
   useEffect(() => {
     setTabWidth(tabHeaderRef.current.firstChild.clientWidth);
