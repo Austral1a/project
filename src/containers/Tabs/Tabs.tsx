@@ -4,7 +4,7 @@ import { Tab } from "@components";
 import classes from "./Tabs.module.scss";
 
 const {
-  tabsItems: { item2, item3, item1 },
+  tabsItems: { tab1, tab2, tab3 },
 } = translation;
 
 export interface TabValues {
@@ -13,9 +13,9 @@ export interface TabValues {
 }
 
 const tabValues: TabValues[] = [
-  { title: item1.title, content: item1.content },
-  { title: item2.title, content: item2.content },
-  { title: item3.title, content: item3.content },
+  { title: tab1.title, content: tab1.content },
+  { title: tab2.title, content: tab2.content },
+  { title: tab3.title, content: tab3.content },
 ];
 
 export const Tabs: FC = (): ReactElement => {

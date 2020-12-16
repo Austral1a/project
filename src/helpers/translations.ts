@@ -21,17 +21,17 @@ export const translation = {
     noData: "There are no employees",
   },
   tabsItems: {
-    item1: {
+    tab1: {
       title: "Tab #1",
       content:
         "Cras et egestas nisl. Mauris consectetur vulputate diam, at laoreet neque mollis egestas. Praesent vitae nunc sed ipsum viverra egestas ac a purus. Fusce lobortis sagittis commodo. Vivamus non facilisis velit. Curabitur libero libero, tempor elementum interdum id, finibus a ligula. ",
     },
-    item2: {
+    tab2: {
       title: "Tab #2",
       content:
         "Praesent quis magna sollicitudin, elementum nisl sit amet, suscipit diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
     },
-    item3: {
+    tab3: {
       title: "Tab #3",
       content:
         "Ut a molestie arcu. Mauris mattis dictum turpis, quis pharetra lacus aliquam eu. Suspendisse fermentum mi lorem, at vestibulum nisi fringilla vel. Donec facilisis ultrices erat id sagittis. Vestibulum et enim non dolor auctor auctor non vel erat. ",
