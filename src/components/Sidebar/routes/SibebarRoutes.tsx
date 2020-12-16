@@ -8,7 +8,7 @@ const accordion = lazy(() =>
   }))
 );
 
-const Item2 = lazy(() =>
+const Tabs = lazy(() =>
   import("../../../containers/Tabs").then((module) => ({
     default: module.Tabs,
   }))
@@ -31,7 +31,7 @@ export const Routes: FC = () => {
     <Suspense fallback={<p>...Loading</p>}>
       <Switch>
         <Route path={RoutePath.accordion} component={accordion} />
-        <Route path={RoutePath.tabs} component={Item2} />
+        <Route path={RoutePath.tabs} component={Tabs} />
         <Route path={RoutePath.item3} component={Item3} />
         <Route path={RoutePath.settings} component={Settings} />
       </Switch>

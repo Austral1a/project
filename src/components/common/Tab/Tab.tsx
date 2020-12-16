@@ -3,12 +3,13 @@ import classNames from "classnames";
 import classes from "./Tab.module.scss";
 import { TabItem } from "./components";
 import { useTabManager } from "./hooks";
+import { TabValues } from "@containers";
 
 interface TabProps {
   tabContainerClasses?: string;
   tabHeaderClasses?: string;
   tabBodyClasses?: string;
-  tabValues: { title: string; content: string }[];
+  tabValues: TabValues[];
 }
 
 export const Tab: FC<TabProps> = ({

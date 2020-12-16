@@ -18,11 +18,11 @@ export const useTabManager = (
     setActiveTab(id);
   }, []);
 
+  const tabWidth = tabHeaderWidth / tabValues.length;
+
   const activeLineStyle = {
-    width: tabHeaderWidth / tabValues.length,
-    left:
-      (tabHeaderWidth / tabValues.length) * (activeTab + 1) -
-      tabHeaderWidth / tabValues.length,
+    width: tabWidth,
+    left: tabWidth * (activeTab + 1) - tabWidth,
   };
 
   useEffect(() => {
