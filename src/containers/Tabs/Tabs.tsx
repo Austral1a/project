@@ -1,7 +1,8 @@
 import React, { FC, ReactChild, ReactElement } from "react";
-import { translation } from "@helpers";
+import { TabRoute, translation } from "@helpers";
 import { Tab } from "@components";
 import classes from "./Tabs.module.scss";
+import { TabRoutes } from "./routes";
 
 const {
   tabsItems: { tab1, tab2, tab3 },
@@ -12,10 +13,10 @@ export interface TabValues {
   content: ReactChild;
 }
 
-const tabValues: TabValues[] = [
-  { title: tab1.title, content: tab1.content },
-  { title: tab2.title, content: tab2.content },
-  { title: tab3.title, content: tab3.content },
+const tabValues: { title: string; route: string }[] = [
+  { title: tab1.title, route: TabRoute.tab1 },
+  { title: tab2.title, route: TabRoute.tab2 },
+  { title: tab3.title, route: TabRoute.tab3 },
 ];
 
 export const Tabs: FC = (): ReactElement => {
@@ -27,6 +28,7 @@ export const Tabs: FC = (): ReactElement => {
       <Tab
         tabContainerClasses={classes["tabs-page__tab"]}
         tabValues={tabValues}
+        tabRoutes={<TabRoutes />}
       />
     </div>
   );

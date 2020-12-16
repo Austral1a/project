@@ -7,8 +7,14 @@
   transition: all 0.2s linear;
 }
 
-@mixin tab-transition {
-  transition: all .3s cubic-bezier(.76,-0.43,.09,1.26);
+@mixin tabTransition {
+  transition: all 0.3s cubic-bezier(0.76, -0.43, 0.09, 1.26);
+}
+
+@mixin tabContentTransition($maxH, $o, $t) {
+  max-height: $maxH;
+  opacity: $o;
+  transition: $t;
 }
 
 @mixin flexRow {

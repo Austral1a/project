@@ -8,11 +8,17 @@
     color: darken($text-color, 100%);
     cursor: pointer;
     text-align: center;
-    @include primary-transition;
 
-    &:hover {
+    a {
+      color: darken($text-color, 100%);
+      text-decoration: none;
+
       @include primary-transition;
-      color: $active-tab-bg-color;
+
+      &:hover {
+        @include primary-transition;
+        color: $active-tab-bg-color;
+      }
     }
   }
 }

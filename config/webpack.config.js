@@ -340,6 +340,7 @@ module.exports = function (webpackEnv) {
         "@containers": path.resolve(__dirname, "../src/containers/"),
         "@StoreEmployees": path.resolve(__dirname, "../src/Store/Employees/"),
         "@API": path.resolve(__dirname, "../src/API/"),
+        "@ContainersTabs": path.resolve(__dirname, "..src/containers/Tabs/"),
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding

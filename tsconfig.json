@@ -14,7 +14,8 @@
       "@components": ["src/components/"],
       "@containers": ["src/containers/"],
       "@StoreEmployees": ["src/Store/Employees/"],
-      "@API": ["src/API/"]
+      "@API": ["src/API/"],
+      "@ContainersTabs": ["src/containers/Tabs/"]
     },
     "allowJs": true,
     "skipLibCheck": true,

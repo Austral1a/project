@@ -1,37 +1,34 @@
-import React, { CSSProperties, useCallback, useEffect, useState } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
+import { useLocation } from "react-router";
 
 interface TabManagerResult {
   activeTab: number;
-  activateTab: (id: number) => void;
+  setActiveTab: (id: number) => void;
   activeLineStyle: CSSProperties;
 }
 
 export const useTabManager = (
   tabValues: any,
-  tabHeaderRef: React.RefObject<HTMLDivElement>
+  tabHeaderRef: React.RefObject<any>
 ): TabManagerResult => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
-  const [tabHeaderWidth, setTabHeaderWidth] = useState<number>(0);
-
-  const activateTab = useCallback((id: number) => {
-    setActiveTab(id);
-  }, []);
-
-  const tabWidth = tabHeaderWidth / tabValues.length;
+  const [tabWidth, setTabWidth] = useState<number>(0);
 
   const activeLineStyle = {
     width: tabWidth,
     left: tabWidth * (activeTab + 1) - tabWidth,
   };
 
+  useLocation();
+
   useEffect(() => {
-    setTabHeaderWidth(tabHeaderRef.current!.clientWidth);
+    setTabWidth(tabHeaderRef.current.firstChild.clientWidth);
   }, [tabHeaderRef]);
 
   return {
     activeTab,
-    activateTab,
+    setActiveTab,
     activeLineStyle,
   };
 };
