@@ -5,13 +5,24 @@ import { TabItem } from "./components";
 import { useTabManager } from "./hooks";
 
 interface TabProps {
-  className?: string;
+  tabContainerClasses?: string;
+  tabHeaderClasses?: string;
+  tabBodyClasses?: string;
   tabValues: { title: string; content: string }[];
 }
 
-export const Tab: FC<TabProps> = ({ className, tabValues }): ReactElement => {
-  const tabClasses = classNames(classes["tab"], className);
-  const tabHeaderClasses = classNames(classes["tab__header"]);
+export const Tab: FC<TabProps> = ({
+  tabContainerClasses,
+  tabHeaderClasses,
+  tabBodyClasses,
+  tabValues,
+}): ReactElement => {
+  const tabCustomClasses = classNames(classes["tab"], tabContainerClasses);
+  const tabHeaderCustomClasses = classNames(
+    classes["tab__header"],
+    tabHeaderClasses
+  );
+  const tabBodyCustomClasses = classNames(classes["tab__body"], tabBodyClasses);
 
   const tabHeaderRef = useRef<HTMLDivElement>(null);
 
@@ -21,15 +32,11 @@ export const Tab: FC<TabProps> = ({ className, tabValues }): ReactElement => {
   );
 
   return (
-    <div className={tabClasses}>
-      <div ref={tabHeaderRef} className={tabHeaderClasses}>
+    <div className={tabCustomClasses}>
+      <div ref={tabHeaderRef} className={tabHeaderCustomClasses}>
         {tabValues.map((item: any, id) => {
           return (
-            <TabItem
-              key={item.title}
-              onClick={() => activateTab(id)}
-              className="tab_title"
-            >
+            <TabItem key={item.title} onClick={() => activateTab(id)}>
               {item.title}
             </TabItem>
           );
@@ -39,7 +46,7 @@ export const Tab: FC<TabProps> = ({ className, tabValues }): ReactElement => {
         style={{ ...activeLineStyle }}
         className={classes["tab__active-line"]}
       />
-      <div className={classes["tab__body"]}>{tabValues[activeTab].content}</div>
+      <div className={tabBodyCustomClasses}>{tabValues[activeTab].content}</div>
     </div>
   );
 };

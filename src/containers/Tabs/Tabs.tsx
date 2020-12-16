@@ -19,7 +19,10 @@ export const Tabs: FC = (): ReactElement => {
       <div className={classes["tabs-page__title"]}>
         <h2>{translation.tabs}</h2>
       </div>
-      <Tab className={classes["tabs-page__tab"]} tabValues={tabValues} />
+      <Tab
+        tabContainerClasses={classes["tabs-page__tab"]}
+        tabValues={tabValues}
+      />
     </div>
   );
 };
