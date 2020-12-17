@@ -6,10 +6,10 @@
   width: calc(100% - 10px);
   margin-top: 8px;
   background-color: $tab-bg-color;
+  @include grid(80px 1fr, 1fr, 0);
 
   &__header {
     @include flexRow;
-    margin-bottom: 30px;
     position: relative;
     overflow-y: auto;
 
@@ -41,7 +41,8 @@
     @include tabContentTransition(0, 0, (opacity 0s 0s, max-height 0.1s));
 
     &--showed {
-      padding-right: 15px;
+      padding: 15px;
+      height: 100%;
 
       @include tabContentTransition(
         100%,

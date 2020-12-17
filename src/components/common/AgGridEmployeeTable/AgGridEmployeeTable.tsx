@@ -36,8 +36,9 @@ export const AgGridEmployeeTable: FC<AgGridEmployeesTableProps> = ({
     },
   ];
 
+  // TODO: style  into var
   return (
-    <div className="ag-theme-alpine" style={{ height: 400, width: 700 }}>
+    <div className="ag-theme-alpine" style={{ height: "100%", width: "100%" }}>
       <AgGridReact columnDefs={columns} rowData={rowData} />
     </div>
   );

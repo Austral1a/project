@@ -12,7 +12,7 @@
 }
 
 @mixin tabContentTransition($maxH, $o, $t) {
-  max-height: $maxH;
+  height: $maxH;
   opacity: $o;
   transition: $t;
 }

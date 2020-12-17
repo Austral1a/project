@@ -68,21 +68,23 @@ export const Tab: FC<TabProps> = ({
           className={classes["tab__header-active-line"]}
         />
       </div>
-      {tabValues.map((tab, id) => {
-        return (
-          <div
-            key={id}
-            className={classNames(
-              id === activeTab
-                ? classes["tab__body--showed"]
-                : classes["tab__body"],
-              tabBodyClasses
-            )}
-          >
-            {tab.content}
-          </div>
-        );
-      })}
+      <div>
+        {tabValues.map((tab, id) => {
+          return (
+            <div
+              key={id}
+              className={classNames(
+                id === activeTab
+                  ? classes["tab__body--showed"]
+                  : classes["tab__body"],
+                tabBodyClasses
+              )}
+            >
+              {tab.content}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

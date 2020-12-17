@@ -1,5 +1,6 @@
 .tabs-page {
   padding: 10px 10px 0 15px;
+  height: calc(100vh - 55px);
 
   &__title {
     text-align: center;
@@ -7,5 +8,6 @@
 
   &__tab {
     font-weight: bolder;
+    height: 90%;
   }
 }

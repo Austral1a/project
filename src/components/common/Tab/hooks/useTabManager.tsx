@@ -19,30 +19,31 @@ export const useTabManager = (
 
   const [tabWidth, setTabWidth] = useState<number>(0);
 
+  const [tabHeaderChildrenWidth, setTabHeaderChildrenWidth] = useState<number>(
+    0
+  );
+
   useEffect(() => {
-    setActiveTab(activeTab);
-
-    setTabWidth(
-      tabHeaderRef.current.clientWidth / tabHeaderRef.current.childElementCount
+    setTabHeaderChildrenWidth(
+      Object.values(tabHeaderRef.current.children)
+        .filter((item: any) => item.className.includes("tab__title"))
+        .map((el: any) => el.clientWidth)
+        .splice(0, activeTab + 1)
+        .reduce((acc: number, width: number) => acc + width)
     );
-    setTimeout(
-      () => console.log(Array.isArray(tabHeaderRef.current!.children)),
-      1000
-    );
-    console.log(tabHeaderRef);
-  }, [setActiveTab, activeTab, tabHeaderRef, activeTabFromURL]);
 
-  //
-  /*const tabHeaderChildrenWidth = tabHeaderRef
-    .current!.children.splice(0, activeTab)
-    .map((child: HTMLElement) => child.clientWidth);
-*/
+    setTabWidth(tabHeaderRef.current.children[activeTab].clientWidth);
+  }, [
+    activeTab,
+    tabHeaderRef,
+    tabHeaderChildrenWidth,
+    tabHeaderChildrenWidth,
+    tabWidth,
+  ]);
+
   const activeLineStyle = {
     width: tabWidth,
-    /*  left: tabHeaderChildrenWidth.reduce(
-      (acc: number, width: number) => acc + width
-    ),
-  */ // left: tabWidth * (activeTab + 1) - tabWidth,
+    left: tabHeaderChildrenWidth - tabWidth,
   };
 
   return {
