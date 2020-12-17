@@ -13,9 +13,10 @@ export const useTabManager = (
 ): TabManagerResult => {
   const location = useLocation();
 
-  const [activeTab, setActiveTab] = useState<number>(
-    +location.pathname[location.pathname.length - 1] - 1
-  );
+  const activeTabFromURL = +location.pathname[location.pathname.length - 1] - 1;
+
+  const [activeTab, setActiveTab] = useState<number>(activeTabFromURL || 0);
+
   const [tabWidth, setTabWidth] = useState<number>(0);
 
   const activeLineStyle = {
@@ -25,11 +26,9 @@ export const useTabManager = (
 
   useEffect(() => {
     setActiveTab(activeTab);
-  }, [setActiveTab, activeTab]);
 
-  useEffect(() => {
     setTabWidth(tabHeaderRef.current.firstChild.clientWidth);
-  }, [tabHeaderRef]);
+  }, [setActiveTab, activeTab, tabHeaderRef, activeTabFromURL]);
 
   return {
     activeTab,

@@ -4,7 +4,7 @@
 .tab {
   margin: 0;
   &__title {
-    padding: 10px 10px;
+    margin: 10px 0;
     color: darken($text-color, 100%);
     cursor: pointer;
     text-align: center;
@@ -12,7 +12,8 @@
     a {
       color: darken($text-color, 100%);
       text-decoration: none;
-
+      display: inline-block;
+      width: 100%;
       @include primary-transition;
 
       &:hover {

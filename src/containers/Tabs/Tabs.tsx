@@ -1,22 +1,33 @@
-import React, { FC, ReactChild, ReactElement } from "react";
+import React, { FC, ReactElement } from "react";
 import { TabRoute, translation } from "@helpers";
-import { Tab } from "@components";
+import { Tab, TabValues } from "@components";
 import classes from "./Tabs.module.scss";
-import { TabRoutes } from "./routes";
+import {
+  TabRoutes,
+  LazyTab1,
+  LazyTab2,
+  LazyTab3,
+  RedirectToTab1,
+} from "./routes";
+import { Link } from "react-router-dom";
 
 const {
   tabsItems: { tab1, tab2, tab3 },
 } = translation;
 
-export interface TabValues {
-  title: string;
-  content: ReactChild;
-}
-
-const tabValues: { title: string; route: string }[] = [
-  { title: tab1.title, route: TabRoute.tab1 },
-  { title: tab2.title, route: TabRoute.tab2 },
-  { title: tab3.title, route: TabRoute.tab3 },
+const tabValues: TabValues[] = [
+  {
+    title: <Link to={TabRoute.tab1}>{tab1.title}</Link>,
+    content: <TabRoutes routePath={TabRoute.tab1} component={LazyTab1} />,
+  },
+  {
+    title: <Link to={TabRoute.tab2}>{tab2.title}</Link>,
+    content: <TabRoutes routePath={TabRoute.tab2} component={LazyTab2} />,
+  },
+  {
+    title: <Link to={TabRoute.tab3}>{tab3.title}</Link>,
+    content: <TabRoutes routePath={TabRoute.tab3} component={LazyTab3} />,
+  },
 ];
 
 export const Tabs: FC = (): ReactElement => {
@@ -28,8 +39,8 @@ export const Tabs: FC = (): ReactElement => {
       <Tab
         tabContainerClasses={classes["tabs-page__tab"]}
         tabValues={tabValues}
-        tabRoutes={<TabRoutes />}
       />
+      <RedirectToTab1 />
     </div>
   );
 };

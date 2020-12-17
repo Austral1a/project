@@ -1,32 +1,46 @@
-import React, { FC, lazy, Suspense } from "react";
-import { Switch, Route } from "react-router";
-import { TabRoute } from "@helpers";
+import React, { ComponentType, FC, lazy, Suspense } from "react";
+import { Switch, Route, Redirect } from "react-router";
+import { RoutePath, TabRoute } from "@helpers";
+import { Fallback } from "@components";
 
-const Tab1 = lazy(() =>
+export const LazyTab1 = lazy(() =>
   import("../../../containers/Tabs/components/Tab1").then((module) => ({
     default: module.Tab1,
   }))
 );
 
-const Tab2 = lazy(() =>
+export const LazyTab2 = lazy(() =>
   import("../../../containers/Tabs/components/Tab2").then((module) => ({
     default: module.Tab2,
   }))
 );
 
-const Tab3 = lazy(() =>
+export const LazyTab3 = lazy(() =>
   import("../../../containers/Tabs/components/Tab3").then((module) => ({
     default: module.Tab3,
   }))
 );
 
-export const TabRoutes: FC = () => {
+interface TabRoutesProps {
+  routePath: string;
+  component: ComponentType;
+}
+
+export const TabRoutes: FC<TabRoutesProps> = ({ routePath, component }) => {
   return (
-    <Suspense fallback={<p>...Loading</p>}>
+    <Suspense fallback={<Fallback />}>
+      <Route path={routePath} component={component} />
+    </Suspense>
+  );
+};
+
+export const RedirectToTab1: FC = () => {
+  return (
+    <Suspense fallback={<Fallback />}>
       <Switch>
-        <Route path={TabRoute.tab1} component={Tab1} />
-        <Route path={TabRoute.tab2} component={Tab2} />
-        <Route path={TabRoute.tab3} component={Tab3} />
+        <Route exact path={RoutePath.tabs}>
+          <Redirect strict from={RoutePath.tabs} to={TabRoute.tab1} />
+        </Route>
       </Switch>
     </Suspense>
   );

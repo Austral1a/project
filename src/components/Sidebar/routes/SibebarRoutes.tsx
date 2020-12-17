@@ -1,6 +1,7 @@
 import React, { FC, lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router";
 import { RoutePath, TabRoute } from "@helpers";
+import { Fallback } from "@components";
 
 const accordion = lazy(() =>
   import("../../../containers/AccordionContainer").then((module) => ({
@@ -28,7 +29,7 @@ const Settings = lazy(() =>
 
 export const Routes: FC = () => {
   return (
-    <Suspense fallback={<p>...Loading</p>}>
+    <Suspense fallback={<Fallback />}>
       <Switch>
         <Route path={RoutePath.accordion} component={accordion} />
         <Route path={RoutePath.tabs} component={Tabs} />

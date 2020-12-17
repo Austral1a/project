@@ -3,3 +3,4 @@ export * from "./Tooltip";
 export * from "./Accordion";
 export * from "./Table";
 export * from "./Tab";
+export * from "./Fallback";

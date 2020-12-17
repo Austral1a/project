@@ -1,15 +1,25 @@
-import React, { FC, ReactElement, useCallback, useEffect, useRef } from "react";
+import React, {
+  FC,
+  ReactChild,
+  ReactElement,
+  useCallback,
+  useRef,
+} from "react";
 import classNames from "classnames";
 import classes from "./Tab.module.scss";
 import { TabItem } from "./components";
 import { useTabManager } from "./hooks";
 
+export interface TabValues {
+  title: ReactChild;
+  content: ReactChild;
+}
+
 interface TabProps {
   tabContainerClasses?: string;
   tabHeaderClasses?: string;
   tabBodyClasses?: string;
-  tabValues: { title: string; route: string }[];
-  tabRoutes?: any;
+  tabValues: TabValues[];
 }
 
 export const Tab: FC<TabProps> = ({
@@ -17,7 +27,6 @@ export const Tab: FC<TabProps> = ({
   tabHeaderClasses,
   tabBodyClasses,
   tabValues,
-  tabRoutes,
 }): ReactElement => {
   const tabCustomClasses = classNames(classes["tab"], tabContainerClasses);
   const tabHeaderCustomClasses = classNames(
@@ -32,53 +41,48 @@ export const Tab: FC<TabProps> = ({
     tabHeaderRef
   );
 
-  const handleTabItemClick = useCallback(
+  const activateTab = useCallback(
     (id: number) => {
       setActiveTab(id);
     },
     [setActiveTab]
   );
 
-  useEffect(() => {
-    handleTabItemClick(0);
-  }, [handleTabItemClick]);
-
   return (
-    <>
-      <div className={tabCustomClasses}>
-        <div ref={tabHeaderRef} className={tabHeaderCustomClasses}>
-          {tabValues.map((item, id) => {
-            return (
-              <TabItem
-                routePath={item.route}
-                className={classes["tab__title"]}
-                key={item.title + id}
-                onClick={() => handleTabItemClick(id)}
-              >
-                {item.title}
-              </TabItem>
-            );
-          })}
-          <span className={classes["tab__header-line"]} />
-        </div>
-        <span
-          style={{ ...activeLineStyle }}
-          className={classes["tab__active-line"]}
-        />
-        {tabValues.map((_, id) => {
+    <div className={tabCustomClasses}>
+      <div ref={tabHeaderRef} className={tabHeaderCustomClasses}>
+        {tabValues.map((tab, id) => {
           return (
-            <div
-              className={classNames(
-                id === activeTab
-                  ? classes["tab__body--showed"]
-                  : classes["tab__body"]
-              )}
+            <TabItem
+              className={classes["tab__title"]}
+              key={id}
+              onClick={() => activateTab(id)}
             >
-              {tabRoutes}
-            </div>
+              {tab.title}
+            </TabItem>
           );
         })}
+        <span className={classes["tab__header-line"]} />
+        <span
+          style={{ ...activeLineStyle }}
+          className={classes["tab__header-active-line"]}
+        />
       </div>
-    </>
+      {tabValues.map((tab, id) => {
+        return (
+          <div
+            key={id}
+            className={classNames(
+              id === activeTab
+                ? classes["tab__body--showed"]
+                : classes["tab__body"],
+              tabBodyClasses
+            )}
+          >
+            {tab.content}
+          </div>
+        );
+      })}
+    </div>
   );
 };

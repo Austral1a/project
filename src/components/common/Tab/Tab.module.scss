@@ -2,22 +2,32 @@
 @import "src/styles/variables";
 
 .tab {
+  @include heightMinWidth(500px, 300px);
+  width: calc(100% - 10px);
   margin-top: 8px;
   background-color: $tab-bg-color;
-  height: 500px;
+
   &__header {
     @include flexRow;
     margin-bottom: 30px;
-    min-width: max-content;
     position: relative;
+    overflow-y: auto;
 
     &-line {
-      display: block;
+      display: inline-block;
       background: darken($text-color, 25%);
-      height: 3px;
+      @include widthHeight(100%, 3px);
       @include topLeftPosition(absolute, 46px, 0);
       z-index: 0;
-      width: 100%;
+    }
+
+    &-active-line {
+      @include topLeftPosition(absolute, 46px, 0);
+      @include tabTransition;
+      display: block;
+      height: 3px;
+      background: $active-tab-bg-color;
+      z-index: 1;
     }
   }
 
@@ -25,15 +35,6 @@
     margin: 0;
     min-width: 100px;
     text-decoration: none;
-  }
-
-  &__active-line {
-    @include topLeftPosition(relative, -33px, 0);
-    @include tabTransition;
-    display: block;
-    min-height: 3px;
-    background: $active-tab-bg-color;
-    z-index: 1;
   }
 
   &__body {

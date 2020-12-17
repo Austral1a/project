@@ -37,4 +37,5 @@ export const translation = {
         "Ut a molestie arcu. Mauris mattis dictum turpis, quis pharetra lacus aliquam eu. Suspendisse fermentum mi lorem, at vestibulum nisi fringilla vel. Donec facilisis ultrices erat id sagittis. Vestibulum et enim non dolor auctor auctor non vel erat. ",
     },
   },
+  fallbackLoading: "...Loading",
 };

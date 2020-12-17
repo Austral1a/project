@@ -96,3 +96,8 @@
   top: $t;
   left: $l;
 }
+
+@mixin heightMinWidth($h, $minW) {
+  height: $h;
+  min-width: $minW;
+}
