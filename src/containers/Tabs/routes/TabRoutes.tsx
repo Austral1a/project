@@ -3,21 +3,27 @@ import { Switch, Route, Redirect } from "react-router";
 import { RoutePath, TabRoute } from "@helpers";
 import { Fallback } from "@components";
 
-export const LazyTab1 = lazy(() =>
-  import("../../../containers/Tabs/components/Tab1").then((module) => ({
-    default: module.Tab1,
+export const AgGridBAEmployeesList = lazy(() =>
+  import("../../../components/shared/AgGridBAList").then((module) => ({
+    default: module.AgGridBAList,
   }))
 );
 
-export const LazyTab2 = lazy(() =>
-  import("../../../containers/Tabs/components/Tab2").then((module) => ({
-    default: module.Tab2,
+export const AgGridQAEmployeesList = lazy(() =>
+  import("../../../components/shared/AgGridQAList").then((module) => ({
+    default: module.AgGridQAList,
   }))
 );
 
-export const LazyTab3 = lazy(() =>
-  import("../../../containers/Tabs/components/Tab3").then((module) => ({
-    default: module.Tab3,
+export const AgGridPMEmployeesList = lazy(() =>
+  import("../../../components/shared/AgGridPMList").then((module) => ({
+    default: module.AgGridPMList,
+  }))
+);
+
+export const AgGridProgrammersList = lazy(() =>
+  import("../../../components/shared/AgGridProgrammersList").then((module) => ({
+    default: module.AgGridProgrammersList,
   }))
 );
 

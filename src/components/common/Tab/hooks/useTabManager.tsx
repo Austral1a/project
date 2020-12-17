@@ -19,16 +19,31 @@ export const useTabManager = (
 
   const [tabWidth, setTabWidth] = useState<number>(0);
 
-  const activeLineStyle = {
-    width: tabWidth,
-    left: tabWidth * (activeTab + 1) - tabWidth,
-  };
-
   useEffect(() => {
     setActiveTab(activeTab);
 
-    setTabWidth(tabHeaderRef.current.firstChild.clientWidth);
+    setTabWidth(
+      tabHeaderRef.current.clientWidth / tabHeaderRef.current.childElementCount
+    );
+    setTimeout(
+      () => console.log(Array.isArray(tabHeaderRef.current!.children)),
+      1000
+    );
+    console.log(tabHeaderRef);
   }, [setActiveTab, activeTab, tabHeaderRef, activeTabFromURL]);
+
+  //
+  /*const tabHeaderChildrenWidth = tabHeaderRef
+    .current!.children.splice(0, activeTab)
+    .map((child: HTMLElement) => child.clientWidth);
+*/
+  const activeLineStyle = {
+    width: tabWidth,
+    /*  left: tabHeaderChildrenWidth.reduce(
+      (acc: number, width: number) => acc + width
+    ),
+  */ // left: tabWidth * (activeTab + 1) - tabWidth,
+  };
 
   return {
     activeTab,
