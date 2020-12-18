@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useState } from "react";
+import React, { CSSProperties, useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 
 interface TabManagerResult {
@@ -21,8 +21,8 @@ export const useTabManager = (
 
   const [activeLinePosition, setActiveLinePosition] = useState<number>(0);
 
-  useEffect(() => {
-    setActiveLinePosition(
+  const sumTabsWidthTilActiveTab = useCallback(() => {
+    return (
       Object.values(tabHeaderRef.current.children)
         // collect only heading elements
         .filter((item: any) => item.className.includes("tab__title"))
@@ -33,9 +33,19 @@ export const useTabManager = (
         // get sum of widths
         .reduce((acc: number, width: number) => acc + width)
     );
+  }, [activeTab, tabHeaderRef]);
+
+  useEffect(() => {
+    setActiveLinePosition(sumTabsWidthTilActiveTab());
 
     setTabWidth(tabHeaderRef.current.children[activeTab].clientWidth);
-  }, [activeTab, tabHeaderRef, activeLinePosition, tabWidth]);
+  }, [
+    activeTab,
+    tabHeaderRef,
+    activeLinePosition,
+    tabWidth,
+    sumTabsWidthTilActiveTab,
+  ]);
 
   const activeLineStyle = {
     width: tabWidth,

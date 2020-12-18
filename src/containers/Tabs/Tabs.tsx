@@ -1,5 +1,5 @@
-import React, { FC, ReactElement, useEffect } from "react";
-import { TabRoute, translation } from "@helpers";
+import React, { FC, ReactElement, useEffect, useMemo } from "react";
+import { tabRoutes, translation } from "@helpers";
 import { Tab, TabValues } from "@components";
 import classes from "./Tabs.module.scss";
 import {
@@ -8,7 +8,7 @@ import {
   AgGridQAEmployeesList,
   AgGridPMEmployeesList,
   AgGridProgrammersList,
-  RedirectToTab1,
+  RedirectToBusinessAnalystsTab,
 } from "./routes";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -20,51 +20,73 @@ import {
 } from "@StoreEmployees";
 
 const {
-  tabsItems: { tab1, tab2, tab3, tab4 },
+  tabsItems: {
+    businessAnalysts,
+    programmers,
+    projectManagers,
+    qualityAssurance,
+  },
 } = translation;
 
 const tabValues: TabValues[] = [
   {
-    title: <Link to={TabRoute.tab1}>{tab1.title}</Link>,
+    title: (
+      <Link to={tabRoutes.businessAnalysts}>{businessAnalysts.title}</Link>
+    ),
     content: (
-      <TabRoutes routePath={TabRoute.tab1} component={AgGridBAEmployeesList} />
+      <TabRoutes
+        routePath={tabRoutes.businessAnalysts}
+        component={AgGridBAEmployeesList}
+      />
     ),
   },
   {
-    title: <Link to={TabRoute.tab2}>{tab2.title}</Link>,
+    title: (
+      <Link to={tabRoutes.qualityAssurance}>{qualityAssurance.title}</Link>
+    ),
     content: (
-      <TabRoutes routePath={TabRoute.tab2} component={AgGridQAEmployeesList} />
+      <TabRoutes
+        routePath={tabRoutes.qualityAssurance}
+        component={AgGridQAEmployeesList}
+      />
     ),
   },
   {
-    title: <Link to={TabRoute.tab3}>{tab3.title}</Link>,
+    title: <Link to={tabRoutes.projectManagers}>{projectManagers.title}</Link>,
     content: (
-      <TabRoutes routePath={TabRoute.tab3} component={AgGridPMEmployeesList} />
+      <TabRoutes
+        routePath={tabRoutes.projectManagers}
+        component={AgGridPMEmployeesList}
+      />
     ),
   },
   {
-    title: <Link to={TabRoute.tab4}>{tab4.title}</Link>,
+    title: <Link to={tabRoutes.programmers}>{programmers.title}</Link>,
     content: (
-      <TabRoutes routePath={TabRoute.tab4} component={AgGridProgrammersList} />
+      <TabRoutes
+        routePath={tabRoutes.programmers}
+        component={AgGridProgrammersList}
+      />
     ),
   },
-];
-
-const getEmployeesActions = [
-  getQAEmployeesAction(),
-  getBAEmployeesAction(),
-  getPMEmployeesAction(),
-  getProgrammersEmployeesAction(),
 ];
 
 export const Tabs: FC = (): ReactElement => {
   const dispatch = useDispatch();
 
+  const getEmployeesActions = useMemo(
+    () => [
+      dispatch(getQAEmployeesAction()),
+      dispatch(getBAEmployeesAction()),
+      dispatch(getPMEmployeesAction()),
+      dispatch(getProgrammersEmployeesAction()),
+    ],
+    [dispatch]
+  );
+
   useEffect(() => {
-    getEmployeesActions.forEach((getEmployeeAction) => {
-      dispatch(getEmployeeAction);
-    });
-  }, [dispatch]);
+    getEmployeesActions.forEach((getEmployeeAction) => getEmployeeAction);
+  }, [getEmployeesActions]);
 
   return (
     <div className={classes["tabs-page"]}>
@@ -75,7 +97,7 @@ export const Tabs: FC = (): ReactElement => {
         tabContainerClasses={classes["tabs-page__tab"]}
         tabValues={tabValues}
       />
-      <RedirectToTab1 />
+      <RedirectToBusinessAnalystsTab />
     </div>
   );
 };

@@ -21,16 +21,16 @@ export const translation = {
     noData: "There are no employees",
   },
   tabsItems: {
-    tab1: {
+    businessAnalysts: {
       title: "Business Analysts",
     },
-    tab2: {
+    qualityAssurance: {
       title: "Quality Assurance",
     },
-    tab3: {
+    projectManagers: {
       title: "Project Managers",
     },
-    tab4: {
+    programmers: {
       title: "Programmers",
     },
   },

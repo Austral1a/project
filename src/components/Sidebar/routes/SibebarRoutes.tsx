@@ -1,6 +1,6 @@
 import React, { FC, lazy, Suspense } from "react";
-import { Switch, Route, Redirect } from "react-router";
-import { RoutePath, TabRoute } from "@helpers";
+import { Switch, Route } from "react-router";
+import { RoutePath } from "@helpers";
 import { Fallback } from "@components";
 
 const accordion = lazy(() =>

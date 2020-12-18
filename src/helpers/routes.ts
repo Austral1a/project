@@ -6,9 +6,9 @@ export enum RoutePath {
   settings = "/settings",
 }
 
-export enum TabRoute {
-  tab1 = "/Tabs/tab/1",
-  tab2 = "/Tabs/tab/2",
-  tab3 = "/Tabs/tab/3",
-  tab4 = "/Tabs/tab/4",
-}
+export const tabRoutes = {
+  businessAnalysts: `${RoutePath.tabs}/businessAnalysts/tab/1`,
+  qualityAssurance: `${RoutePath.tabs}/qualityAssurance/tab/2`,
+  projectManagers: `${RoutePath.tabs}/projectManagers/tab/3`,
+  programmers: `${RoutePath.tabs}/programmers/tab/4`,
+};
