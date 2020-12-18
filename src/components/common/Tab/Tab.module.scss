@@ -7,16 +7,16 @@
   margin-top: 8px;
   background-color: $tab-bg-color;
   @include grid(80px 1fr, 1fr, 0);
+  overflow: auto;
 
   &__header {
     @include flexRow;
     position: relative;
-    overflow-y: auto;
 
     &-line {
       display: inline-block;
       background: darken($text-color, 25%);
-      @include widthHeight(100%, 3px);
+      @include heightMinWidth(3px, 100%);
       @include topLeftPosition(absolute, 46px, 0);
       z-index: 0;
     }
@@ -33,7 +33,6 @@
 
   &__title {
     margin: 0;
-    min-width: 100px;
     text-decoration: none;
   }
 

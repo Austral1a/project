@@ -19,31 +19,27 @@ export const useTabManager = (
 
   const [tabWidth, setTabWidth] = useState<number>(0);
 
-  const [tabHeaderChildrenWidth, setTabHeaderChildrenWidth] = useState<number>(
-    0
-  );
+  const [activeLinePosition, setActiveLinePosition] = useState<number>(0);
 
   useEffect(() => {
-    setTabHeaderChildrenWidth(
+    setActiveLinePosition(
       Object.values(tabHeaderRef.current.children)
+        // collect only heading elements
         .filter((item: any) => item.className.includes("tab__title"))
+        // grab their width
         .map((el: any) => el.clientWidth)
+        // make slice from first tab to active tab
         .splice(0, activeTab + 1)
+        // get sum of widths
         .reduce((acc: number, width: number) => acc + width)
     );
 
     setTabWidth(tabHeaderRef.current.children[activeTab].clientWidth);
-  }, [
-    activeTab,
-    tabHeaderRef,
-    tabHeaderChildrenWidth,
-    tabHeaderChildrenWidth,
-    tabWidth,
-  ]);
+  }, [activeTab, tabHeaderRef, activeLinePosition, tabWidth]);
 
   const activeLineStyle = {
     width: tabWidth,
-    left: tabHeaderChildrenWidth - tabWidth,
+    left: activeLinePosition - tabWidth,
   };
 
   return {

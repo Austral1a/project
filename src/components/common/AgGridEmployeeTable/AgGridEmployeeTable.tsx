@@ -12,6 +12,8 @@ interface AgGridEmployeesTableProps extends AgGridReactProps {
   rowData: Employee[];
 }
 
+const agGridEmployeeTableStyle = { height: "100%", width: "100%" };
+
 export const AgGridEmployeeTable: FC<AgGridEmployeesTableProps> = ({
   rowData,
 }): ReactElement => {
@@ -38,7 +40,7 @@ export const AgGridEmployeeTable: FC<AgGridEmployeesTableProps> = ({
 
   // TODO: style  into var
   return (
-    <div className="ag-theme-alpine" style={{ height: "100%", width: "100%" }}>
+    <div className="ag-theme-alpine" style={agGridEmployeeTableStyle}>
       <AgGridReact columnDefs={columns} rowData={rowData} />
     </div>
   );
