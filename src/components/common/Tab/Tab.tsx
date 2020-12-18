@@ -41,7 +41,7 @@ export const Tab: FC<TabProps> = ({
     tabHeaderRef
   );
 
-  const activateTab = useCallback(
+  const handleItemClick = useCallback(
     (id: number) => {
       setActiveTab(id);
     },
@@ -56,7 +56,7 @@ export const Tab: FC<TabProps> = ({
             <TabItem
               className={classes["tab__title"]}
               key={id}
-              onClick={() => activateTab(id)}
+              onClick={() => handleItemClick(id)}
             >
               {tab.title}
             </TabItem>
