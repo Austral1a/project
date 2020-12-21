@@ -56,7 +56,6 @@ export const Tab: FC<TabProps> = ({
         {tabValues.map((tab, id) => {
           return (
             <TabItem
-              dataTabName={tab.tabName}
               className={classes["tab__title"]}
               key={id}
               onClick={() => handleItemClick(id)}

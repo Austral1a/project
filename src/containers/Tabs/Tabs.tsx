@@ -30,9 +30,7 @@ const {
 const tabValues: TabValues[] = [
   {
     title: (
-      <Link to={tabRoutes.businessAnalysts} data-tabId={0}>
-        {businessAnalysts.title}
-      </Link>
+      <Link to={tabRoutes.businessAnalysts}>{businessAnalysts.title}</Link>
     ),
     content: (
       <TabRoutes
@@ -45,9 +43,7 @@ const tabValues: TabValues[] = [
   },
   {
     title: (
-      <Link to={tabRoutes.qualityAssurance} data-tabId={1}>
-        {qualityAssurance.title}
-      </Link>
+      <Link to={tabRoutes.qualityAssurance}>{qualityAssurance.title}</Link>
     ),
     content: (
       <TabRoutes
@@ -59,11 +55,7 @@ const tabValues: TabValues[] = [
     id: 1,
   },
   {
-    title: (
-      <Link to={tabRoutes.projectManagers} data-tabId={2}>
-        {projectManagers.title}
-      </Link>
-    ),
+    title: <Link to={tabRoutes.projectManagers}>{projectManagers.title}</Link>,
     content: (
       <TabRoutes
         routePath={tabRoutes.projectManagers}
@@ -74,11 +66,7 @@ const tabValues: TabValues[] = [
     id: 2,
   },
   {
-    title: (
-      <Link to={tabRoutes.programmers} data-tabId={3}>
-        {programmers.title}
-      </Link>
-    ),
+    title: <Link to={tabRoutes.programmers}>{programmers.title}</Link>,
     content: (
       <TabRoutes
         routePath={tabRoutes.programmers}
