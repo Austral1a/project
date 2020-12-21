@@ -21,7 +21,7 @@ export const useTabManager = (
 
   const [activeLinePosition, setActiveLinePosition] = useState<number>(0);
 
-  const sumTabsWidthTilActiveTab = useCallback(() => {
+  const calculateActiveLinePosition = useCallback(() => {
     return (
       Object.values(tabHeaderRef.current.children)
         // collect only heading elements
@@ -36,7 +36,7 @@ export const useTabManager = (
   }, [activeTab, tabHeaderRef]);
 
   useEffect(() => {
-    setActiveLinePosition(sumTabsWidthTilActiveTab());
+    setActiveLinePosition(calculateActiveLinePosition());
 
     setTabWidth(tabHeaderRef.current.children[activeTab].clientWidth);
   }, [
@@ -44,7 +44,7 @@ export const useTabManager = (
     tabHeaderRef,
     activeLinePosition,
     tabWidth,
-    sumTabsWidthTilActiveTab,
+    calculateActiveLinePosition,
   ]);
 
   const activeLineStyle = {
