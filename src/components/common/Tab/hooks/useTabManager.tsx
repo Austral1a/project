@@ -27,6 +27,10 @@ export const useTabManager = (
 
   const [activeLinePosition, setActiveLinePosition] = useState<number>(0);
 
+  const getActiveTabId = tabValues.find(
+    (tab: TabValues) => tab.tabName === activeTabName
+  ).id;
+
   const calculateActiveLinePosition = useCallback(() => {
     return (
       Object.values(tabHeaderRef.current!.children)
@@ -44,17 +48,15 @@ export const useTabManager = (
   useEffect(() => {
     setActiveTabName(tabNameFromURL);
 
-    setActiveTab(
-      tabValues.find((tab: TabValues) => tab.tabName === activeTabName).id
-    );
-
     setActiveLinePosition(calculateActiveLinePosition());
 
     setTabWidth(tabHeaderRef.current!.children[activeTab].clientWidth);
+
+    setActiveTab(getActiveTabId);
   }, [
+    getActiveTabId,
     tabNameFromURL,
     tabValues,
-    activeTabName,
     activeTab,
     tabHeaderRef,
     calculateActiveLinePosition,

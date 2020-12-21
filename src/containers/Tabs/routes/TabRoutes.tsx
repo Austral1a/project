@@ -1,6 +1,5 @@
 import React, { ComponentType, FC, lazy, Suspense } from "react";
-import { Switch, Route, Redirect } from "react-router";
-import { RoutePath, tabRoutes } from "@helpers";
+import { Route } from "react-router";
 import { Fallback } from "@components";
 
 export const AgGridBAEmployeesList = lazy(() =>
@@ -36,22 +35,6 @@ export const TabRoutes: FC<TabRoutesProps> = ({ routePath, component }) => {
   return (
     <Suspense fallback={<Fallback />}>
       <Route exact path={routePath} component={component} />
-    </Suspense>
-  );
-};
-
-export const RedirectToBusinessAnalystsTab: FC = () => {
-  return (
-    <Suspense fallback={<Fallback />}>
-      <Switch>
-        <Route exact path={RoutePath.tabs}>
-          <Redirect
-            strict
-            from={RoutePath.tabs}
-            to={tabRoutes.businessAnalysts}
-          />
-        </Route>
-      </Switch>
     </Suspense>
   );
 };

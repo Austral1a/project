@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from "react";
-import { RoutePath, translation } from "@helpers";
+import { RoutePath, tabRoutes, translation } from "@helpers";
 import { SidebarItem } from "@components";
 import { Routes } from "./routes";
 import { useSidebarManager } from "./hooks";
@@ -15,7 +15,7 @@ const sidebarItems = [
   },
   {
     title: translation.tabs,
-    route: RoutePath.tabs,
+    route: tabRoutes.businessAnalysts,
   },
   {
     title: translation.item3,

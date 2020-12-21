@@ -8,7 +8,6 @@ import {
   AgGridQAEmployeesList,
   AgGridPMEmployeesList,
   AgGridProgrammersList,
-  RedirectToBusinessAnalystsTab,
 } from "./routes";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -117,7 +116,6 @@ export const Tabs: FC = (): ReactElement => {
         tabContainerClasses={classes["tabs-page__tab"]}
         tabValues={tabValues}
       />
-      <RedirectToBusinessAnalystsTab />
     </div>
   );
 };
