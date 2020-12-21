@@ -30,7 +30,7 @@ const {
 const tabValues: TabValues[] = [
   {
     title: (
-      <Link to={tabRoutes.businessAnalysts} data-tab-id={0}>
+      <Link to={tabRoutes.businessAnalysts} data-tabId={0}>
         {businessAnalysts.title}
       </Link>
     ),
@@ -45,7 +45,7 @@ const tabValues: TabValues[] = [
   },
   {
     title: (
-      <Link to={tabRoutes.qualityAssurance} data-tab-id={1}>
+      <Link to={tabRoutes.qualityAssurance} data-tabId={1}>
         {qualityAssurance.title}
       </Link>
     ),
@@ -60,7 +60,7 @@ const tabValues: TabValues[] = [
   },
   {
     title: (
-      <Link to={tabRoutes.projectManagers} data-tab-id={2}>
+      <Link to={tabRoutes.projectManagers} data-tabId={2}>
         {projectManagers.title}
       </Link>
     ),
@@ -75,7 +75,7 @@ const tabValues: TabValues[] = [
   },
   {
     title: (
-      <Link to={tabRoutes.programmers} data-tab-id={3}>
+      <Link to={tabRoutes.programmers} data-tabId={3}>
         {programmers.title}
       </Link>
     ),

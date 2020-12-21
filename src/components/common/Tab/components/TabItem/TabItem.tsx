@@ -17,11 +17,7 @@ export const TabItem: FC<TabItemProps> = ({
   const tabItemClasses = classNames(classes["tab__title"], className);
 
   return (
-    <h2
-      data-tab-name={dataTabName}
-      onClick={onClick}
-      className={tabItemClasses}
-    >
+    <h2 data-tabName={dataTabName} onClick={onClick} className={tabItemClasses}>
       {children}
     </h2>
   );
