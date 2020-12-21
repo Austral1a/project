@@ -13,6 +13,8 @@ import { useTabManager } from "./hooks";
 export interface TabValues {
   title: ReactChild;
   content: ReactChild;
+  tabName: string;
+  id: number;
 }
 
 interface TabProps {
@@ -54,6 +56,7 @@ export const Tab: FC<TabProps> = ({
         {tabValues.map((tab, id) => {
           return (
             <TabItem
+              dataTabName={tab.tabName}
               className={classes["tab__title"]}
               key={id}
               onClick={() => handleItemClick(id)}

@@ -7,8 +7,8 @@ export enum RoutePath {
 }
 
 export const tabRoutes = {
-  businessAnalysts: `${RoutePath.tabs}/businessAnalysts/tab/1`,
-  qualityAssurance: `${RoutePath.tabs}/qualityAssurance/tab/2`,
-  projectManagers: `${RoutePath.tabs}/projectManagers/tab/3`,
-  programmers: `${RoutePath.tabs}/programmers/tab/4`,
+  businessAnalysts: `${RoutePath.tabs}/businessAnalysts`,
+  qualityAssurance: `${RoutePath.tabs}/qualityAssurance`,
+  projectManagers: `${RoutePath.tabs}/projectManagers`,
+  programmers: `${RoutePath.tabs}/programmers`,
 };

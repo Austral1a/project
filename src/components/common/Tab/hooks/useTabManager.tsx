@@ -1,5 +1,6 @@
 import React, { CSSProperties, useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
+import { TabValues } from "@components";
 
 interface TabManagerResult {
   activeTab: number;
@@ -9,13 +10,18 @@ interface TabManagerResult {
 
 export const useTabManager = (
   tabValues: any,
-  tabHeaderRef: React.RefObject<any>
+  tabHeaderRef: React.RefObject<HTMLHeadingElement | HTMLSpanElement>
 ): TabManagerResult => {
   const location = useLocation();
 
-  const activeTabFromURL = +location.pathname[location.pathname.length - 1] - 1;
+  const tabNameFromURL: string = location.pathname.replace(
+    /^(.+\/)([a-z]+)$/i,
+    "$2"
+  );
 
-  const [activeTab, setActiveTab] = useState<number>(activeTabFromURL || 0);
+  const [activeTab, setActiveTab] = useState<number>(0);
+
+  const [activeTabName, setActiveTabName] = useState<string>(tabNameFromURL);
 
   const [tabWidth, setTabWidth] = useState<number>(0);
 
@@ -23,7 +29,7 @@ export const useTabManager = (
 
   const calculateActiveLinePosition = useCallback(() => {
     return (
-      Object.values(tabHeaderRef.current.children)
+      Object.values(tabHeaderRef.current!.children)
         // collect only heading elements
         .filter((item: any) => item.className.includes("tab__title"))
         // grab their width
@@ -36,14 +42,21 @@ export const useTabManager = (
   }, [activeTab, tabHeaderRef]);
 
   useEffect(() => {
+    setActiveTabName(tabNameFromURL);
+
+    setActiveTab(
+      tabValues.find((tab: TabValues) => tab.tabName === activeTabName).id
+    );
+
     setActiveLinePosition(calculateActiveLinePosition());
 
-    setTabWidth(tabHeaderRef.current.children[activeTab].clientWidth);
+    setTabWidth(tabHeaderRef.current!.children[activeTab].clientWidth);
   }, [
+    tabNameFromURL,
+    tabValues,
+    activeTabName,
     activeTab,
     tabHeaderRef,
-    activeLinePosition,
-    tabWidth,
     calculateActiveLinePosition,
   ]);
 

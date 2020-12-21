@@ -31,7 +31,9 @@ const {
 const tabValues: TabValues[] = [
   {
     title: (
-      <Link to={tabRoutes.businessAnalysts}>{businessAnalysts.title}</Link>
+      <Link to={tabRoutes.businessAnalysts} data-tab-id={0}>
+        {businessAnalysts.title}
+      </Link>
     ),
     content: (
       <TabRoutes
@@ -39,10 +41,14 @@ const tabValues: TabValues[] = [
         component={AgGridBAEmployeesList}
       />
     ),
+    tabName: "businessAnalysts",
+    id: 0,
   },
   {
     title: (
-      <Link to={tabRoutes.qualityAssurance}>{qualityAssurance.title}</Link>
+      <Link to={tabRoutes.qualityAssurance} data-tab-id={1}>
+        {qualityAssurance.title}
+      </Link>
     ),
     content: (
       <TabRoutes
@@ -50,24 +56,38 @@ const tabValues: TabValues[] = [
         component={AgGridQAEmployeesList}
       />
     ),
+    tabName: "qualityAssurance",
+    id: 1,
   },
   {
-    title: <Link to={tabRoutes.projectManagers}>{projectManagers.title}</Link>,
+    title: (
+      <Link to={tabRoutes.projectManagers} data-tab-id={2}>
+        {projectManagers.title}
+      </Link>
+    ),
     content: (
       <TabRoutes
         routePath={tabRoutes.projectManagers}
         component={AgGridPMEmployeesList}
       />
     ),
+    tabName: "projectManagers",
+    id: 2,
   },
   {
-    title: <Link to={tabRoutes.programmers}>{programmers.title}</Link>,
+    title: (
+      <Link to={tabRoutes.programmers} data-tab-id={3}>
+        {programmers.title}
+      </Link>
+    ),
     content: (
       <TabRoutes
         routePath={tabRoutes.programmers}
         component={AgGridProgrammersList}
       />
     ),
+    tabName: "programmers",
+    id: 3,
   },
 ];
 
